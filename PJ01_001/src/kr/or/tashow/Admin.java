@@ -11,7 +11,7 @@ public class Admin {
     int countSingle;
     int countTwin;
 
-
+///// system
     ArrayList<Bike> addBike() {
             Scanner scan = new Scanner(System.in);
             System.out.println("등록하고자 하는 자전거의 종류를 입력하세요");
@@ -42,5 +42,9 @@ public class Admin {
             System.out.println("생성된 1인용 자전거 대수: "+countSingle);
             System.out.println("생성된 2인용 자전거 대수: "+countTwin);
             return bikeList;
+        }
+
+        void removeBike() {
+
         }
     }

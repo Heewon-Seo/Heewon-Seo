@@ -36,6 +36,8 @@ public class User implements Serializable {
         this.userPwd = userPwd;
     }
 
+
+////System
     HashMap singUp() {
         System.out.println("휴대폰 번호(ID) 입력");
         this.userPhoneNum = input.nextLine().trim();
@@ -109,7 +111,6 @@ public class User implements Serializable {
                 time.inputStartTime(userPhoneNum, i);
                 rentSystem.writeBikeList();
                 rentSystem.writeRentList();
-                rentSystem.readRentList();
                 break;
             }
         }
@@ -118,12 +119,12 @@ public class User implements Serializable {
     Bike returnBike(String id) { // 반납
 
         for(Bike bike: bikeList) { // bikeList
+            rentSystem.loadRentList();
             if (bike.getId().equals(id)) { // 리스트에 아이디값과 인자로 받은 아이디값과 같으면
                 bike.setRentalStatus(RentalStatus.AVAILABLE); // 대여가능으로 바꿔주고
                 time.inputEndTime(userPhoneNum);
                 rentSystem.writeBikeList();
                 rentSystem.writeRentList();
-                rentSystem.readRentList();
                 return bike; // 바이크에 리턴해준다.
             } else {
                 System.out.println("일련번호가 일치하지 않습니다.");

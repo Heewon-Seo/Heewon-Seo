@@ -26,12 +26,10 @@ public class Time {
     }
 
     void inputStartTime(String userPhoneNum, int index) {
-        String id = Bike.bikeList.get(index).getId();
-        RentList.rentList.put(userPhoneNum,new RentList(id));
-        RentList.rentList.get(userPhoneNum).startTime = setStartTime();
+        RentList.rentList.get(index).getStartTime();
     }
     void inputEndTime(String userPhoneNum) {
-        RentList.rentList.get(userPhoneNum).endTime = setEndTime();
+        // RentList.rentList.get(userPhoneNum).endTime = setEndTime();
     }
 
     int getTime(Calendar startTime, Calendar endTime) {

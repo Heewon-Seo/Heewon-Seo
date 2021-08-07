@@ -1,10 +1,7 @@
 package kr.or.tashow;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class RentSystem {
     Time time;
@@ -57,7 +54,7 @@ public class RentSystem {
             bis = new BufferedInputStream(fis);
             ois = new ObjectInputStream(bis);
 
-            RentList.rentList = (HashMap<String, RentList>) ois.readObject();
+            RentList.rentList = (ArrayList<RentList>) ois.readObject();
 
         }catch(Exception e) {
             System.out.println(e.getMessage());
@@ -105,15 +102,15 @@ public class RentSystem {
     }
 
     void writeUserList() {// Filewrite > UserList
-        File userList =new File(fileRoot+"userlist.txt");
+        File userList = new File(fileRoot+"userlist.txt");
         FileOutputStream fos = null;
         BufferedOutputStream bos = null;
         ObjectOutputStream oos = null;
 
         try{
-            fos =new FileOutputStream(userList);
-            bos =new BufferedOutputStream(fos);
-            oos =new ObjectOutputStream(bos);
+            fos = new FileOutputStream(userList);
+            bos = new BufferedOutputStream(fos);
+            oos = new ObjectOutputStream(bos);
 
             oos.writeObject(User.userList);
             System.out.println("회원 목록이 저장되었습니다.");
@@ -254,10 +251,10 @@ public class RentSystem {
                 bis = new BufferedInputStream(fis);
                 ois = new ObjectInputStream(bis);
 
-                RentList.rentList = (HashMap<String, RentList>) ois.readObject();
+                RentList.rentList = (ArrayList<RentList>) ois.readObject();
 
-                for (Map.Entry<String,RentList> entrySet : RentList.rentList.entrySet()) {
-                    System.out.println(entrySet.getKey() + " : " + entrySet.getValue());
+                for(Object rentList : RentList.rentList) {
+                    System.out.println(rentList);
                 }
 
             }catch(Exception e) {
@@ -273,6 +270,34 @@ public class RentSystem {
             }
 
         }
+
+    void loadRentList() {
+
+        File file = new File(fileRoot+"rentlist.txt");
+        FileInputStream fis = null;
+        BufferedInputStream bis = null;
+        ObjectInputStream ois = null;
+
+        try{
+            fis = new FileInputStream(file);
+            bis = new BufferedInputStream(fis);
+            ois = new ObjectInputStream(bis);
+
+            RentList.rentList = (ArrayList<RentList>) ois.readObject();
+
+        }catch(Exception e) {
+            System.out.println(e.getMessage());
+        }finally{
+            try{
+                ois.close();
+                bis.close();
+                fis.close();
+            }catch(IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
 
     void calculateTotalSales() {
 
