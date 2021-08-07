@@ -9,8 +9,7 @@ public class RentList implements Serializable {
     Calendar startTime;
     Calendar endTime;
     Bike bike;
-    //휴대폰번호(key), 대여시작시각, 대여종료시각, 결제요금
-    static ArrayList<RentList> rentList = new ArrayList<RentList>();
+
 
     public RentList(String id) {
         this.id = id;

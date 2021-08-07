@@ -57,7 +57,7 @@ public class Menu {
             int menu = Integer.parseInt(input.nextLine());
             if(menu >= 1 && menu <= 4) {
                 switch (menu) {
-                    case 1: IO.calculateTotalSales(); break;
+                    case 1: calculateTotalSales(); break;
                     case 2: IO.readUserList(); break;
                     case 3: displayBikeMenu(); break;
                     case 4: return;
