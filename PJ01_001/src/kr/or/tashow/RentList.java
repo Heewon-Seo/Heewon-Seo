@@ -1,11 +1,12 @@
 package kr.or.tashow;
 
 import java.io.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 
 public class RentList implements Serializable {
-    String userPhoneNum;
     String id;
     Calendar startTime;
     Calendar endTime;
@@ -18,20 +19,12 @@ public class RentList implements Serializable {
         bike = new Bike();
     }
 
-    void writeRentList(User user) { // 선택하고 나면 시간 입력됨
-        File file = new File("rentlist.txt");
-        FileOutputStream fos = null;
-        ObjectOutputStream out = null;
-
-        try {
-            fos = new FileOutputStream(file);
-            out = new ObjectOutputStream(fos);
-            out.writeObject(rentList);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
+    @Override
+    public String toString() {
+        return "RentList{" +
+                ", id='" + id + '\'' +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                '}' + "\n";
     }
 }

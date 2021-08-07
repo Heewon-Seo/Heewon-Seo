@@ -9,16 +9,25 @@ import java.util.regex.Pattern;
 import static kr.or.tashow.Bike.bikeList;
 
 public class User implements Serializable {
-    String userPhoneNum;
-    String userName;
-    String userPwd;
+    private Scanner input;
+
+    private String userPhoneNum;
+    private String userName;
+    private String userPwd;
+
+    private Pattern userPhonNumPattenrn = Pattern.compile("^01(0|1|6|7|8|9)-\\d{3,4}-\\d{4}$");
+    private Pattern userNamePattern = Pattern.compile("^[가-힣]*$");// 이름 한글만 > 패턴추가해야함
+    private Pattern userPwdPattenrn =Pattern.compile("^[a-zA-Z0-9]{6,8}$"); // 비밀번호 형식 > 패턴추가해야함
+
+    private Time time;
+    private RentSystem rentSystem;
+
     static HashMap<String,User> userList = new HashMap<String,User>();
-    Scanner input;
-    Pattern pt = Pattern.compile("^01(0|1|6|7|8|9)-\\d{3,4}-\\d{4}$");
 
-    User() {
+    public User() {
         input = new Scanner(System.in);
-
+        rentSystem = new RentSystem();
+        time = new Time();
     }
 
     public User(String userPhoneNum, String userName, String userPwd) {
@@ -27,27 +36,31 @@ public class User implements Serializable {
         this.userPwd = userPwd;
     }
 
-    public HashMap singUp() {
+    HashMap singUp() {
         System.out.println("휴대폰 번호(ID) 입력");
         this.userPhoneNum = input.nextLine().trim();
 
-        Matcher ch = pt.matcher(this.userPhoneNum);
+        Matcher phone = userPhonNumPattenrn.matcher(this.userPhoneNum);
 
-        if (ch.find() == false) {
+        if (phone.find() == false) {
             System.out.println("형식오류. 재입력");
-            System.out.println("ex) 010-1234-5678 ");
+            System.out.println("ex) 010-1234-5678");
 
+        } else if (userList.containsKey(userPhoneNum)) {
+            System.out.println("이미 등록된 아이디입니다.");
         } else {
-            System.out.println("비밀번호를 입력해주세요");
-            this.userPwd = input.nextLine();
+                System.out.println("비밀번호를 입력해주세요");
+                this.userPwd = input.nextLine();
 
-            System.out.println("이름 입력");
-            this.userName = input.nextLine();
+                System.out.println("이름 입력");
+                this.userName = input.nextLine();
 
-            this.userList.put(this.userPhoneNum, new User(this.userPhoneNum, this.userName, this.userPwd));
-        }
-        System.out.println(userList.toString());
-        showResult();
+                this.userList.put(this.userPhoneNum, new User(this.userPhoneNum, this.userName, this.userPwd));
+
+                rentSystem.writeUserList();
+                showResult();
+            }
+
         return userList;
     }
 
@@ -59,14 +72,14 @@ public class User implements Serializable {
         System.out.println();
     }
 
-    public String userLogin () {
+  String userLogin () {
 
         while (true) {
             System.out.println("ID를 입력해주세요");
             this.userPhoneNum = input.nextLine().trim();
 
-            Matcher ch = pt.matcher(this.userPhoneNum);
-            if (ch.find() == false) {
+            Matcher phone = userPhonNumPattenrn.matcher(this.userPhoneNum);
+            if (phone.find() == false) {
                 System.out.println("형식오류. 재입력");
                 System.out.println("ex) 010-1234-5678 ");
 
@@ -88,27 +101,35 @@ public class User implements Serializable {
         return userPhoneNum;
     }
 
-    public Bike rentalBike(BikeType type) { // 대여
-        for(Bike bike: bikeList) { // bikeList
-            if (bike.getType() == type && bike.getRentalStatus() == RentalStatus.AVAILABLE) {
-                bike.setRentalStatus(RentalStatus.UNAVAILABLE);
-                return bike;
+    void rentalBike(BikeType type) { // 대여
+        for (int i = 0 ; i < bikeList.size() ; i++) {
+            if (bikeList.get(i).getType().equals(type) && bikeList.get(i).getRentalStatus().equals(RentalStatus.AVAILABLE)) {
+                bikeList.get(i).setRentalStatus(RentalStatus.UNAVAILABLE);
+                System.out.println("대여된 자전거: " + bikeList.get(i).getId() + bikeList.get(i).getRentalStatus());
+                time.inputStartTime(userPhoneNum, i);
+                rentSystem.writeBikeList();
+                rentSystem.writeRentList();
+                rentSystem.readRentList();
+                break;
             }
-            System.out.println(bike);
         }
-        return null;
     }
 
-    public Bike returnBike(String id) { // 반납
+    Bike returnBike(String id) { // 반납
 
         for(Bike bike: bikeList) { // bikeList
             if (bike.getId().equals(id)) { // 리스트에 아이디값과 인자로 받은 아이디값과 같으면
                 bike.setRentalStatus(RentalStatus.AVAILABLE); // 대여가능으로 바꿔주고
+                time.inputEndTime(userPhoneNum);
+                rentSystem.writeBikeList();
+                rentSystem.writeRentList();
+                rentSystem.readRentList();
                 return bike; // 바이크에 리턴해준다.
+            } else {
+                System.out.println("일련번호가 일치하지 않습니다.");
             }
         }
         return null;
-
     }
 
     @Override

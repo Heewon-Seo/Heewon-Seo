@@ -14,29 +14,27 @@ public class Time {
         dateFormat = new SimpleDateFormat("HH:mm");
     }
 
-    public Calendar inputStartTime (){
+    Calendar setStartTime (){
         startTime = Calendar.getInstance();
         System.out.println(dateFormat.format(startTime.getTime()));
         return startTime;
     }
-    public Calendar inputEndTime (){
+    Calendar setEndTime (){
         endTime = Calendar.getInstance();
         System.out.println(dateFormat.format(endTime.getTime()));
         return endTime;
     }
 
-    public void inputStartTime(String userPhoneNum, int index) {
+    void inputStartTime(String userPhoneNum, int index) {
         String id = Bike.bikeList.get(index).getId();
         RentList.rentList.put(userPhoneNum,new RentList(id));
-        RentList.rentList.get(userPhoneNum).startTime = inputStartTime();
+        RentList.rentList.get(userPhoneNum).startTime = setStartTime();
     }
-    public void inputEndTime(String userPhoneNum, int index) {
-        String id = Bike.bikeList.get(index).getId();
-        RentList.rentList.put(userPhoneNum,new RentList(id));
-        RentList.rentList.get(userPhoneNum).endTime = inputEndTime();
+    void inputEndTime(String userPhoneNum) {
+        RentList.rentList.get(userPhoneNum).endTime = setEndTime();
     }
 
-    public int getTime(Calendar startTime, Calendar endTime) {
+    int getTime(Calendar startTime, Calendar endTime) {
         diffHour = endTime.get(Calendar.HOUR_OF_DAY) - startTime.get(Calendar.HOUR_OF_DAY);
         diffMinute = endTime.get(Calendar.MINUTE) - startTime.get(Calendar.MINUTE);
         if (diffMinute > 0) {
@@ -45,4 +43,5 @@ public class Time {
             return diffHour;
         }
     }
+
 }
