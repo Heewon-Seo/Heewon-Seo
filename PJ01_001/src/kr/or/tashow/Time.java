@@ -27,11 +27,12 @@ public class Time {
 
     public void inputStartTime(String userPhoneNum, int index) {
         String id = Bike.bikeList.get(index).getId();
-        RentList.rentList.put(userPhoneNum,new RentList(userPhoneNum,id));
+        RentList.rentList.put(userPhoneNum,new RentList(id));
         RentList.rentList.get(userPhoneNum).startTime = inputStartTime();
     }
     public void inputEndTime(String userPhoneNum, int index) {
-        RentList.rentList.put(userPhoneNum,new RentList(userPhoneNum,Bike.bikeList.get(index).bikeNum));
+        String id = Bike.bikeList.get(index).getId();
+        RentList.rentList.put(userPhoneNum,new RentList(id));
         RentList.rentList.get(userPhoneNum).endTime = inputEndTime();
     }
 

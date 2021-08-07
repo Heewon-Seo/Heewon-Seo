@@ -7,6 +7,7 @@ HushMap보다는 단순한 리스트 이기 때문에 ArrayList를 사용
  */
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 enum BikeType {
@@ -21,7 +22,7 @@ enum RentalStatus {
     UNAVAILABLE;
 }
 
-public class Bike{
+public class Bike implements Serializable {
 
     private String id; // 일련번호
     private BikeType type; // 1인용, 2인용
@@ -33,10 +34,10 @@ public class Bike{
 
     }
 
-    Bike(String id, BikeType type, RentalStatus rentalStatus, int price) {
+    Bike(String id, BikeType type, int price) {
         this.id = id;
         this.type = type;
-        this.rentalStatus = rentalStatus;
+        this.rentalStatus = RentalStatus.AVAILABLE;
         this.price = price;
 
     }
