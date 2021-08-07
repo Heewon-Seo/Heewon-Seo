@@ -23,9 +23,11 @@ public class IO {
 
         if(!file.exists()) {
             writeUserList();
-        } else if (!file2.exists()) {
+        }
+        if (!file2.exists()) {
             writeRentList();
-        } else if (!file3.exists()) {
+        }
+        if (!file3.exists()) {
             writeBikeList();
         }
 
@@ -38,7 +40,7 @@ public class IO {
             bis = new BufferedInputStream(fis);
             ois = new ObjectInputStream(bis);
 
-            User.userList = (HashMap<String, User>) ois.readObject();
+            UserSystem.userList = (HashMap<String, User>) ois.readObject();
 
         }catch(Exception e) {
             System.out.println(e.getMessage());
@@ -92,8 +94,6 @@ public class IO {
 
     }
 
-
-
     void writeUserList() {// Filewrite > UserList
         File userList = new File(fileRoot+"userlist.txt");
         FileOutputStream fos = null;
@@ -105,7 +105,7 @@ public class IO {
             bos = new BufferedOutputStream(fos);
             oos = new ObjectOutputStream(bos);
 
-            oos.writeObject(User.userList);
+            oos.writeObject(UserSystem.userList);
             System.out.println("회원 목록이 저장되었습니다.");
         }catch(Exception e) {
             System.out.println(e.getMessage());
@@ -131,9 +131,9 @@ public class IO {
             bis = new BufferedInputStream(fis);
             ois = new ObjectInputStream(bis);
 
-            User.userList = (HashMap<String, User>) ois.readObject();
+            UserSystem.userList = (HashMap<String, User>) ois.readObject();
 
-            for (Map.Entry<String,User> entrySet : User.userList.entrySet()) {
+            for (Map.Entry<String,User> entrySet : UserSystem.userList.entrySet()) {
                 System.out.println(entrySet.getKey() + " : " + entrySet.getValue());
             }
 
@@ -246,7 +246,7 @@ public class IO {
 
                 rentList = (ArrayList<RentList>) ois.readObject();
 
-                for(Object rentList : rentList) {
+                for(RentList rentList : rentList) {
                     System.out.println(rentList);
                 }
 

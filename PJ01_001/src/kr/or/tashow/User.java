@@ -15,8 +15,6 @@ public class User implements Serializable {
     private Time time;
     private IO rentSystem;
 
-    static HashMap<String,User> userList = new HashMap<String,User>();
-
     public User() {
         input = new Scanner(System.in);
         rentSystem = new IO();

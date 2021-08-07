@@ -5,9 +5,9 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static kr.or.tashow.User.userList;
-
 public class UserSystem {
+
+    static HashMap<String,User> userList = new HashMap<>();
     User user;
     Scanner input;
     IO io;

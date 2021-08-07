@@ -2,12 +2,11 @@ package kr.or.tashow;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Scanner;
 
 public class BikeService {
-    static ArrayList<Bike> bikeList = new ArrayList<Bike>();
+    static ArrayList<Bike> bikeList = new ArrayList<>();
     //휴대폰번호(key), 대여시작시각, 대여종료시각, 결제요금
-    static ArrayList<RentList> rentList = new ArrayList<RentList>();
+    static ArrayList<RentList> rentList = new ArrayList<>();
     Time time;
     IO io;
     User user;
@@ -23,7 +22,7 @@ public class BikeService {
             if (bikeList.get(i).getType().equals(type) && bikeList.get(i).getRentalStatus().equals(RentalStatus.AVAILABLE)) {
                 bikeList.get(i).setRentalStatus(RentalStatus.UNAVAILABLE);
                 System.out.println("대여된 자전거: " + bikeList.get(i).getId() + bikeList.get(i).getRentalStatus());
-                time.inputStartTime(user.getUserPhoneNum(), i);
+                // time.inputStartTime(, i);
                 io.writeBikeList();
                 io.writeRentList();
                 break;
@@ -65,5 +64,7 @@ public class BikeService {
     void calculateTotalSales() {
 
     }
+
+
 
 }

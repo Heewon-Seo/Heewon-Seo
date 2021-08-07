@@ -28,6 +28,7 @@ public class AdminSystem {
         if (input == 1) {
             for (int i = 0 ; i < amount ; i++) {
                 bikeList.add(new Bike(String.format("S-%04d",++countSingle),BikeType.Single,1000));
+                // 일련번호가 계속 1부터 나오는 현상 발생
             }
         } else if (input == 2) {
             for (int i = 0 ; i < amount ; i++) {
@@ -37,8 +38,8 @@ public class AdminSystem {
             System.out.println("잘못 입력");
         }
         System.out.println(bikeList.toString());
-        System.out.println("생성된 1인용 자전거 대수: "+countSingle);
-        System.out.println("생성된 2인용 자전거 대수: "+countTwin);
+        System.out.println("생성된 1인용 자전거 대수: "+ countSingle);
+        System.out.println("생성된 2인용 자전거 대수: "+ countTwin);
         return bikeList;
     }
 
