@@ -7,8 +7,7 @@ public class Admin {
     private int countSingle;
     private int countTwin;
 
-    public Admin(String id) {
-        this.id = id;
+    public Admin() {
     }
 
     public Admin(String id, BikeType bikeType, int price, int countSingle, int countTwin) {

@@ -3,6 +3,8 @@ package kr.or.tashow;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import static kr.or.tashow.BikeService.rentList;
+
 public class Time {
     Calendar startTime;
     Calendar endTime;
@@ -26,7 +28,7 @@ public class Time {
     }
 
     void inputStartTime(String userPhoneNum, int index) {
-        RentList.rentList.get(index).getStartTime();
+        rentList.get(index).getStartTime();
     }
     void inputEndTime(String userPhoneNum) {
         // RentList.rentList.get(userPhoneNum).endTime = setEndTime();

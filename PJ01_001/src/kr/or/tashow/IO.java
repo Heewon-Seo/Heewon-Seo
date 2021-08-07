@@ -3,6 +3,9 @@ package kr.or.tashow;
 import java.io.*;
 import java.util.*;
 
+import static kr.or.tashow.BikeService.bikeList;
+import static kr.or.tashow.BikeService.rentList;
+
 public class IO {
     Time time;
     String fileRoot;
@@ -54,7 +57,7 @@ public class IO {
             bis = new BufferedInputStream(fis);
             ois = new ObjectInputStream(bis);
 
-            RentList.rentList = (ArrayList<RentList>) ois.readObject();
+            rentList = (ArrayList<RentList>) ois.readObject();
 
         }catch(Exception e) {
             System.out.println(e.getMessage());
@@ -73,7 +76,7 @@ public class IO {
             bis = new BufferedInputStream(fis);
             ois = new ObjectInputStream(bis);
 
-            Bike.bikeList = (ArrayList<Bike>) ois.readObject();
+            bikeList = (ArrayList<Bike>) ois.readObject();
 
         }catch(Exception e) {
             System.out.println(e.getMessage());
@@ -158,7 +161,7 @@ public class IO {
             bos =new BufferedOutputStream(fos);
             oos =new ObjectOutputStream(bos);
 
-            oos.writeObject(Bike.bikeList);
+            oos.writeObject(bikeList);
             System.out.println("자전거 목록이 저장되었습니다.");
         }catch(Exception e) {
             System.out.println(e.getMessage());
@@ -184,9 +187,9 @@ public class IO {
             bis =new BufferedInputStream(fis);
             ois =new ObjectInputStream(bis);
 
-            Bike.bikeList = (ArrayList<Bike>) ois.readObject();
+            bikeList = (ArrayList<Bike>) ois.readObject();
 
-            for(Bike bike : Bike.bikeList) {
+            for(Bike bike : bikeList) {
                 System.out.println(bike);
             }
 
@@ -213,7 +216,7 @@ public class IO {
             fos = new FileOutputStream(file,true);
             bos = new BufferedOutputStream(fos);
             out = new ObjectOutputStream(bos);
-            out.writeObject(RentList.rentList);
+            out.writeObject(rentList);
             System.out.println("대여내역이 저장되었습니다");
 
         } catch (Exception e) {
@@ -241,9 +244,9 @@ public class IO {
                 bis = new BufferedInputStream(fis);
                 ois = new ObjectInputStream(bis);
 
-                RentList.rentList = (ArrayList<RentList>) ois.readObject();
+                rentList = (ArrayList<RentList>) ois.readObject();
 
-                for(Object rentList : RentList.rentList) {
+                for(Object rentList : rentList) {
                     System.out.println(rentList);
                 }
 
@@ -273,7 +276,7 @@ public class IO {
             bis = new BufferedInputStream(fis);
             ois = new ObjectInputStream(bis);
 
-            RentList.rentList = (ArrayList<RentList>) ois.readObject();
+            rentList = (ArrayList<RentList>) ois.readObject();
 
         }catch(Exception e) {
             System.out.println(e.getMessage());

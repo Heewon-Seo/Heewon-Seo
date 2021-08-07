@@ -10,13 +10,20 @@ public class BikeService {
     static ArrayList<RentList> rentList = new ArrayList<RentList>();
     Time time;
     IO io;
+    User user;
+
+    public BikeService() {
+        time = new Time();
+        io = new IO();
+        user = new User();
+    }
 
     void rentalBike(BikeType type) { // 대여
         for (int i = 0 ; i < bikeList.size() ; i++) {
             if (bikeList.get(i).getType().equals(type) && bikeList.get(i).getRentalStatus().equals(RentalStatus.AVAILABLE)) {
                 bikeList.get(i).setRentalStatus(RentalStatus.UNAVAILABLE);
                 System.out.println("대여된 자전거: " + bikeList.get(i).getId() + bikeList.get(i).getRentalStatus());
-                time.inputStartTime(userPhoneNum, i);
+                time.inputStartTime(user.getUserPhoneNum(), i);
                 io.writeBikeList();
                 io.writeRentList();
                 break;
@@ -30,7 +37,7 @@ public class BikeService {
             io.loadRentList();
             if (bike.getId().equals(id)) { // 리스트에 아이디값과 인자로 받은 아이디값과 같으면
                 bike.setRentalStatus(RentalStatus.AVAILABLE); // 대여가능으로 바꿔주고
-                time.inputEndTime(userPhoneNum);
+                time.inputEndTime(user.getUserPhoneNum());
                 io.writeBikeList();
                 io.writeRentList();
                 return bike; // 바이크에 리턴해준다.

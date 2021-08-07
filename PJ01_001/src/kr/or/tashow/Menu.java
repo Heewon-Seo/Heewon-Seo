@@ -7,11 +7,17 @@ public class Menu {
     User user;
     Admin admin;
     IO IO;
+    BikeService bikeService;
+    UserSystem userSystem;
+    AdminSystem adminSystem;
 
     public Menu() {
         user = new User();
         admin = new Admin();
         IO = new IO();
+        bikeService = new BikeService();
+        userSystem = new UserSystem();
+        adminSystem = new AdminSystem();
         IO.initialize();
     }
 
@@ -29,10 +35,10 @@ public class Menu {
             if(menu >= 1 && menu <= 4) {
                 switch (menu) {
                     case 1:
-                        user.singUp();
+                        userSystem.singUp();
                         break;
                     case 2:
-                        user.userLogin();
+                        userSystem.userLogin();
                         displayUserMenu();
                         break;
                     case 3: displayAdminMenu(); break;
@@ -57,7 +63,7 @@ public class Menu {
             int menu = Integer.parseInt(input.nextLine());
             if(menu >= 1 && menu <= 4) {
                 switch (menu) {
-                    case 1: calculateTotalSales(); break;
+                    case 1: bikeService.calculateTotalSales(); break;
                     case 2: IO.readUserList(); break;
                     case 3: displayBikeMenu(); break;
                     case 4: return;
@@ -83,12 +89,12 @@ public class Menu {
             int menu = Integer.parseInt(input.nextLine());
             if(menu >= 1 && menu <= 3) {
                 switch (menu) {
-                    case 1: user.rentalBike(BikeType.Single); break;
-                    case 2: user.rentalBike(BikeType.Twin); break;
+                    case 1: bikeService.rentalBike(BikeType.Single); break;
+                    case 2: bikeService.rentalBike(BikeType.Twin); break;
                     case 3:
                         System.out.println("반납할 자전거의 일련번호를 입력해주세요");
                         String id = input.nextLine();
-                        user.returnBike(id);
+                        bikeService.returnBike(id);
                         break;
                     case 4: return;
                 }
@@ -117,7 +123,7 @@ public class Menu {
             if(menu >= 1 && menu <= 4) {
                 switch (menu) {
                     case 1:
-                        admin.addBike();
+                        adminSystem.addBike();
                         IO.writeBikeList();
                         break;
                     case 2: break;

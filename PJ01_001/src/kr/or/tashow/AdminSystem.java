@@ -6,6 +6,17 @@ import java.util.Scanner;
 import static kr.or.tashow.BikeService.bikeList;
 
 public class AdminSystem {
+    Bike bike;
+    BikeService bikeService;
+    int countSingle;
+    int countTwin;
+
+    public AdminSystem() {
+        bike = new Bike();
+        bikeService = new BikeService();
+        this.countSingle = 0;
+        this.countTwin = 0;
+    }
 
     ArrayList<Bike> addBike() {
         Scanner scan = new Scanner(System.in);
@@ -16,20 +27,12 @@ public class AdminSystem {
         int amount = Integer.parseInt(scan.nextLine());
         if (input == 1) {
             for (int i = 0 ; i < amount ; i++) {
-                this.id = String.format("S-%04d",++countSingle);
-                this.bikeType = BikeType.Single;
-                this.price = 1000;
-                bikeList.add(new Bike(this.id,this.bikeType,this.price));
+                bikeList.add(new Bike(String.format("S-%04d",++countSingle),BikeType.Single,1000));
             }
-
         } else if (input == 2) {
             for (int i = 0 ; i < amount ; i++) {
-                this.id = String.format("T-%04d",++countTwin);
-                this.bikeType = BikeType.Twin;
-                this.price = 2000;
-                bikeList.add(new Bike(this.id,this.bikeType,this.price));
+                bikeList.add(new Bike(String.format("T-%04d",++countTwin),BikeType.Twin,2000));
             }
-
         } else {
             System.out.println("잘못 입력");
         }
@@ -40,6 +43,7 @@ public class AdminSystem {
     }
 
     void removeBike() {
+
 
     }
 }

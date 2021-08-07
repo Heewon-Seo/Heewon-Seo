@@ -48,14 +48,6 @@ public class RentList implements Serializable {
         this.bike = bike;
     }
 
-    public static ArrayList<RentList> getRentList() {
-        return rentList;
-    }
-
-    public static void setRentList(ArrayList<RentList> rentList) {
-        RentList.rentList = rentList;
-    }
-
     @Override
     public String toString() {
         return "RentList{" +

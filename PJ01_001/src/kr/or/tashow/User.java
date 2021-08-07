@@ -61,30 +61,6 @@ public class User implements Serializable {
         this.userPwd = userPwd;
     }
 
-    public Pattern getUserPhonNumPattenrn() {
-        return userPhonNumPattenrn;
-    }
-
-    public void setUserPhonNumPattenrn(Pattern userPhonNumPattenrn) {
-        this.userPhonNumPattenrn = userPhonNumPattenrn;
-    }
-
-    public Pattern getUserNamePattern() {
-        return userNamePattern;
-    }
-
-    public void setUserNamePattern(Pattern userNamePattern) {
-        this.userNamePattern = userNamePattern;
-    }
-
-    public Pattern getUserPwdPattenrn() {
-        return userPwdPattenrn;
-    }
-
-    public void setUserPwdPattenrn(Pattern userPwdPattenrn) {
-        this.userPwdPattenrn = userPwdPattenrn;
-    }
-
     public Time getTime() {
         return time;
     }
