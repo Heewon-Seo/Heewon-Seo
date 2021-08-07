@@ -3,12 +3,12 @@ package kr.or.tashow;
 import java.io.*;
 import java.util.*;
 
-public class RentSystem {
+public class IO {
     Time time;
     String fileRoot;
 
 
-    public RentSystem() {
+    public IO() {
         time = new Time();
         fileRoot = "/Users/heewonseo/Documents/1stProject/lists/";
     }

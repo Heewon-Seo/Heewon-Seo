@@ -6,13 +6,13 @@ public class Menu {
     Scanner input = new Scanner(System.in);
     User user;
     Admin admin;
-    RentSystem rentSystem;
+    IO IO;
 
     public Menu() {
         user = new User();
         admin = new Admin();
-        rentSystem = new RentSystem();
-        rentSystem.initialize();
+        IO = new IO();
+        IO.initialize();
     }
 
 
@@ -57,8 +57,8 @@ public class Menu {
             int menu = Integer.parseInt(input.nextLine());
             if(menu >= 1 && menu <= 4) {
                 switch (menu) {
-                    case 1: rentSystem.calculateTotalSales(); break;
-                    case 2: rentSystem.readUserList(); break;
+                    case 1: IO.calculateTotalSales(); break;
+                    case 2: IO.readUserList(); break;
                     case 3: displayBikeMenu(); break;
                     case 4: return;
                 }
@@ -118,11 +118,11 @@ public class Menu {
                 switch (menu) {
                     case 1:
                         admin.addBike();
-                        rentSystem.writeBikeList();
+                        IO.writeBikeList();
                         break;
                     case 2: break;
-                    case 3: rentSystem.readBikeList(); break;
-                    case 4: rentSystem.readRentList(); break;
+                    case 3: IO.readBikeList(); break;
+                    case 4: IO.readRentList(); break;
                     case 5: return;
                 }
             } else {

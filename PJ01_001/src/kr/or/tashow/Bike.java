@@ -28,7 +28,6 @@ public class Bike implements Serializable {
     private BikeType type; // 1인용, 2인용
     private RentalStatus rentalStatus; //대여가능, 대여중
     private int price; // 가격
-    static ArrayList<Bike> bikeList = new ArrayList<Bike>();
 
     Bike () {
 
@@ -39,7 +38,6 @@ public class Bike implements Serializable {
         this.type = type;
         this.rentalStatus = RentalStatus.AVAILABLE;
         this.price = price;
-
     }
 
     @Override
