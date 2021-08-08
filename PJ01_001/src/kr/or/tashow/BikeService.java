@@ -44,12 +44,13 @@ public class BikeService implements Serializable {
             io.loadRentList();
             if (bikeList.containsKey(id) && bikeList.get(id).getRentalStatus().equals(RentalStatus.UNAVAILABLE)) { // 리스트에 아이디값과 인자로 받은 아이디값과 같으면
                 Bike bike = bikeList.get(id);
-                bike.setRentalStatus(RentalStatus.AVAILABLE);
                 for (int i = 0 ; i < rentList.size() ; i++) {
                     if (rentList.get(i).getId().contains(id)) {
-                        time.inputEndTime(i);
+                        // time.inputEndTime(i); > 진짜 시간
+                        time.testEndTime(i); // > 테스트용 시간
                         int fee = calculateFee(id,rentList.get(i).getStartTime(),rentList.get(i).getEndTime());
                         payFee(i,fee);
+                        bike.setRentalStatus(RentalStatus.AVAILABLE);
                         io.writeBikeList();
                         io.writeRentList();
                         break;
@@ -58,6 +59,7 @@ public class BikeService implements Serializable {
                 break;
             } else {
                 System.out.println("일련번호가 일치하지 않습니다.");
+                break;
             }
         }
     }
@@ -74,6 +76,9 @@ public class BikeService implements Serializable {
             System.out.println("결제가 완료되었습니다.");
             System.out.println("이용해 주셔서 감사합니다.");
         } else if (input == 2) {
+            rentList.get(index).setFee(0);
+            rentList.get(index).setEndTime(null);
+            io.writeRentList();
             System.out.println("결제가 취소되었습니다");
             System.out.println("이전화면으로 돌아갑니다");
         } else {

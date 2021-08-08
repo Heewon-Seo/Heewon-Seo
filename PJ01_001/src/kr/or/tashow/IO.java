@@ -16,7 +16,7 @@ public class IO {
         fileRoot = "/Users/heewonseo/Documents/1stProject/lists/";
     }
 
-    void initialize() {
+    void startSystem() {
         File file = new File(fileRoot+"userlist.txt");
         File file2 = new File(fileRoot+"rentlist.txt");
         File file3 = new File(fileRoot+"bikelist.txt");

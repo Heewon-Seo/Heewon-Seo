@@ -18,7 +18,7 @@ public class Menu {
         bikeService = new BikeService();
         userSystem = new UserSystem();
         adminSystem = new AdminSystem();
-        io.initialize();
+        io.startSystem();
     }
 
 
