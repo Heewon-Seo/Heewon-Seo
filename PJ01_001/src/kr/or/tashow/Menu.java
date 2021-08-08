@@ -41,6 +41,7 @@ public class Menu {
                     break;
                 case 3:
                     adminSystem.adminLogin();
+                    displayAdminMenu();
                     break;
                 case 4:
                     return;

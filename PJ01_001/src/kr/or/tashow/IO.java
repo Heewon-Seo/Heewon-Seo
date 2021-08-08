@@ -245,7 +245,7 @@ public class IO {
 
             rentList = (ArrayList<RentList>) ois.readObject();
 
-            for(RentList rent : rentList) { // 왜 사이즈가 0으로 나오지..?
+            for(RentList rent : rentList) {
                 System.out.println(rent);
             }
 

@@ -10,7 +10,6 @@ public class AdminSystem {
     String id;
     String pw;
     BikeService bikeService;
-    Menu menu;
     int countSingle;
     int countTwin;
     HashMap<String, String> adminMap = new HashMap<>();
@@ -72,15 +71,14 @@ public class AdminSystem {
 
             if (!adminMap.containsKey(id)) {
                 System.out.println("id가 맞지 않습니다. 재입력 해주세요.");
-                return;
+                continue;
             } else {
                 if (adminMap.get(id).equals(pwd)) {
                     System.out.println("관리자 인증이 완료되었습니다.");
-                    menu.displayAdminMenu();
                     break;
                 } else {
                     System.out.println("비밀번호가 맞지 않습니다. 재입력 해주세요");
-                    break;
+                    continue;
                 }
             }
         }
