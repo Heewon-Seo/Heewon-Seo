@@ -1,12 +1,14 @@
 package kr.or.tashow;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 import static kr.or.tashow.BikeService.bikeList;
 
 public class AdminSystem {
     Bike bike;
+    String id;
     BikeService bikeService;
     int countSingle;
     int countTwin;
@@ -16,9 +18,10 @@ public class AdminSystem {
         bikeService = new BikeService();
         this.countSingle = 0;
         this.countTwin = 0;
+        this.id = "";
     }
 
-    ArrayList<Bike> addBike() {
+    HashMap<String, Bike> addBike() {
         Scanner scan = new Scanner(System.in);
         System.out.println("등록하고자 하는 자전거의 종류를 입력하세요");
         System.out.println("1. 1인용 자전거 | 2. 2인용 자전거");
@@ -27,12 +30,14 @@ public class AdminSystem {
         int amount = Integer.parseInt(scan.nextLine());
         if (input == 1) {
             for (int i = 0 ; i < amount ; i++) {
-                bikeList.add(new Bike(String.format("S-%04d",++countSingle),BikeType.Single,1000));
+                id = String.format("S-%04d", ++countSingle);
+                bikeList.put(id,new Bike(BikeType.Single,1000));
                 // 일련번호가 계속 1부터 나오는 현상 발생
             }
         } else if (input == 2) {
             for (int i = 0 ; i < amount ; i++) {
-                bikeList.add(new Bike(String.format("T-%04d",++countTwin),BikeType.Twin,2000));
+                id = String.format("T-%04d",++countTwin);
+                bikeList.put(id,new Bike(BikeType.Twin,2000));
             }
         } else {
             System.out.println("잘못 입력");

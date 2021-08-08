@@ -6,14 +6,13 @@ import java.util.Calendar;
 
 public class RentList implements Serializable {
     String id;
+    String userPhoneNum;
     Calendar startTime;
     Calendar endTime;
-    Bike bike;
 
-
-    public RentList(String id) {
+    public RentList(String id, String userPhoneNum) {
         this.id = id;
-        bike = new Bike();
+        this.userPhoneNum = userPhoneNum;
     }
 
     public String getId() {
@@ -22,6 +21,14 @@ public class RentList implements Serializable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getUserPhoneNum() {
+        return userPhoneNum;
+    }
+
+    public void setUserPhoneNum(String userPhoneNum) {
+        this.userPhoneNum = userPhoneNum;
     }
 
     public Calendar getStartTime() {
@@ -38,22 +45,5 @@ public class RentList implements Serializable {
 
     public void setEndTime(Calendar endTime) {
         this.endTime = endTime;
-    }
-
-    public Bike getBike() {
-        return bike;
-    }
-
-    public void setBike(Bike bike) {
-        this.bike = bike;
-    }
-
-    @Override
-    public String toString() {
-        return "RentList{" +
-                ", id='" + id + '\'' +
-                ", startTime=" + startTime +
-                ", endTime=" + endTime +
-                '}' + "\n";
     }
 }

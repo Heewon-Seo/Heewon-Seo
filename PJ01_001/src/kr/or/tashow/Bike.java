@@ -8,7 +8,6 @@ HushMap보다는 단순한 리스트 이기 때문에 ArrayList를 사용
 
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 enum BikeType {
     Single,
@@ -24,7 +23,6 @@ enum RentalStatus {
 
 public class Bike implements Serializable {
 
-    private String id; // 일련번호
     private BikeType type; // 1인용, 2인용
     private RentalStatus rentalStatus; //대여가능, 대여중
     private int price; // 가격
@@ -33,8 +31,7 @@ public class Bike implements Serializable {
 
     }
 
-    Bike(String id, BikeType type, int price) {
-        this.id = id;
+    Bike(BikeType type, int price) {
         this.type = type;
         this.rentalStatus = RentalStatus.AVAILABLE;
         this.price = price;
@@ -43,16 +40,12 @@ public class Bike implements Serializable {
     @Override
     public String toString() {
         return "Bike{" +
-                "id='" + id + '\'' +
                 ", type=" + type +
                 ", rentalStatus=" + rentalStatus +
                 ", price=" + price +
                 '}';
     }
 
-    public String getId() {
-        return id;
-    }
 
     public RentalStatus getRentalStatus() {
         return rentalStatus;
@@ -66,9 +59,6 @@ public class Bike implements Serializable {
         return price;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public void setType(BikeType type) {
         this.type = type;

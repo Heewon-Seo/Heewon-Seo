@@ -24,16 +24,16 @@ public class UserSystem {
         userName = "";
     }
 
-    private Pattern userPhonNumPattenrn = Pattern.compile("^01(0|1|6|7|8|9)-\\d{3,4}-\\d{4}$");
-    private Pattern userNamePattern = Pattern.compile("^[가-힣]*$");// 이름 한글만 > 패턴추가해야함
-    private Pattern userPwdPattenrn = Pattern.compile("^[a-zA-Z0-9]{6,8}$"); // 비밀번호 형식 > 패턴추가해야함
+    private Pattern userPhonNumPattern = Pattern.compile("^01(0|1|6|7|8|9)-\\d{3,4}-\\d{4}$");
+    private Pattern userNamePattern = Pattern.compile("^[가-힣]*$");// 이름 한글만
+    private Pattern userPwdPattern = Pattern.compile("^[a-zA-Z0-9]{6,8}$"); // 비밀번호 형식
 
     HashMap singUp() {
         System.out.println("휴대폰 번호(ID) 입력");
 
         userPhoneNum = input.nextLine().trim();
 
-        Matcher phone = userPhonNumPattenrn.matcher(userPhoneNum);
+        Matcher phone = userPhonNumPattern.matcher(userPhoneNum);
 
         if (phone.find() == false) {
             System.out.println("형식오류. 재입력");
@@ -43,17 +43,28 @@ public class UserSystem {
             System.out.println("이미 등록된 아이디입니다.");
         } else {
             System.out.println("비밀번호를 입력해주세요");
+            System.out.println("비밀번호 형식 : \n<최소 영문 하나 이상 포함\n 특수 문자(!@#$%^&*?_~),숫자,영문(대소문자)만 가능\n6글자 ~ 8글자>");
             userPwd = input.nextLine();
+            Matcher pwd = userPwdPattern.matcher(this.userPwd);
 
-            System.out.println("이름 입력");
-            userName = input.nextLine();
+            if (pwd.find() == false) {
+                System.out.println("형식 오류. 재입력");
+            }else {
+                System.out.println("이름 입력");
+                userName = input.nextLine();
 
-            userList.put(userPhoneNum, new User(userPhoneNum,userName,userPwd));
+                Matcher name = userNamePattern.matcher(this.userName);
+                if (name.find() == false) {
+                    System.out.println("형식 오류. 재입력");
+                    System.out.println("ex) 홍길동 ");
 
-            io.writeUserList();
-            showResult();
+                } else {
+                    userList.put(userPhoneNum, new User(userPhoneNum,userName,userPwd));
+                    io.writeUserList();
+                    showResult();
+                }
+            }
         }
-
         return userList;
     }
 
