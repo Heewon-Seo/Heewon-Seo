@@ -6,7 +6,7 @@ public class Menu {
     Scanner input = new Scanner(System.in);
     User user;
     Admin admin;
-    IO IO;
+    IO io;
     BikeService bikeService;
     UserSystem userSystem;
     AdminSystem adminSystem;
@@ -14,11 +14,11 @@ public class Menu {
     public Menu() {
         user = new User();
         admin = new Admin();
-        IO = new IO();
+        io = new IO();
         bikeService = new BikeService();
         userSystem = new UserSystem();
         adminSystem = new AdminSystem();
-        IO.initialize();
+        io.initialize();
     }
 
 
@@ -64,7 +64,7 @@ public class Menu {
             if(menu >= 1 && menu <= 4) {
                 switch (menu) {
                     case 1: bikeService.calculateTotalSales(); break;
-                    case 2: IO.readUserList(); break;
+                    case 2: io.readUserList(); break;
                     case 3: displayBikeMenu(); break;
                     case 4: return;
                 }
@@ -72,7 +72,6 @@ public class Menu {
                 System.out.println("잘못입력");
                 return;
             }
-
         }
     }
 
@@ -87,10 +86,10 @@ public class Menu {
             System.out.println("4. 이전메뉴");
 
             int menu = Integer.parseInt(input.nextLine());
-            if(menu >= 1 && menu <= 3) {
+            if(menu >= 1 && menu <= 4) {
                 switch (menu) {
-                    case 1: bikeService.rentalBike(BikeType.Single); break;
-                    case 2: bikeService.rentalBike(BikeType.Twin); break;
+                    case 1: bikeService.rentalBike("S"); break;
+                    case 2: bikeService.rentalBike("T"); break;
                     case 3:
                         System.out.println("반납할 자전거의 일련번호를 입력해주세요");
                         String id = input.nextLine();
@@ -102,11 +101,7 @@ public class Menu {
                 System.out.println("잘못입력");
                 return;
             }
-
-
-
         }
-
     }
 
     void displayBikeMenu() {
@@ -124,22 +119,17 @@ public class Menu {
                 switch (menu) {
                     case 1:
                         adminSystem.addBike();
-                        IO.writeBikeList();
+                        io.writeBikeList();
                         break;
-                    case 2: break;
-                    case 3: IO.readBikeList(); break;
-                    case 4: IO.readRentList(); break;
+                    case 2: adminSystem.removeBike(); break;
+                    case 3: io.readBikeList(); break;
+                    case 4: io.readRentList(); break;
                     case 5: return;
                 }
             } else {
                 System.out.println("잘못입력");
                 return;
             }
-
-
         }
-
-
     }
-
 }

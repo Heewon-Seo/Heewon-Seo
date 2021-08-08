@@ -26,13 +26,15 @@ public class AdminSystem {
         System.out.println("등록하고자 하는 자전거의 종류를 입력하세요");
         System.out.println("1. 1인용 자전거 | 2. 2인용 자전거");
         int input = Integer.parseInt(scan.nextLine());
+        if (!(input == 1 || input == 2)) {
+            System.out.println("다시 입력해주세요.");
+        } else {
         System.out.println("자전거 대수를 입력하세요");
         int amount = Integer.parseInt(scan.nextLine());
         if (input == 1) {
             for (int i = 0 ; i < amount ; i++) {
                 id = String.format("S-%04d", ++countSingle);
                 bikeList.put(id,new Bike(BikeType.Single,1000));
-                // 일련번호가 계속 1부터 나오는 현상 발생
             }
         } else if (input == 2) {
             for (int i = 0 ; i < amount ; i++) {
@@ -41,6 +43,7 @@ public class AdminSystem {
             }
         } else {
             System.out.println("잘못 입력");
+        }
         }
         System.out.println(bikeList.toString());
         System.out.println("생성된 1인용 자전거 대수: "+ countSingle);

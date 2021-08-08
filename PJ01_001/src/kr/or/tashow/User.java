@@ -1,9 +1,7 @@
 package kr.or.tashow;
 
 import java.io.Serializable;
-import java.util.HashMap;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class User implements Serializable {
     private Scanner input;

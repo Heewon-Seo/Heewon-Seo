@@ -27,11 +27,11 @@ public class Time {
         return endTime;
     }
 
-    void inputStartTime(int index) {
-        rentList.get(index).startTime = setStartTime();
+    void inputStartTime(int index) { // 안쓰임..
+        rentList.get(index).setStartTime(setStartTime());
     }
     void inputEndTime(int index) {
-        rentList.get(index).endTime = setEndTime();
+        rentList.get(index).setEndTime(setEndTime());
     }
 
     int getTime(Calendar startTime, Calendar endTime) {

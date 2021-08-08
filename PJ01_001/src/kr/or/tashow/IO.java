@@ -78,7 +78,7 @@ public class IO {
             bis = new BufferedInputStream(fis);
             ois = new ObjectInputStream(bis);
 
-            bikeList = (ArrayList<Bike>) ois.readObject();
+            bikeList = (HashMap<String, Bike>) ois.readObject();
 
         }catch(Exception e) {
             System.out.println(e.getMessage());
@@ -187,10 +187,10 @@ public class IO {
             bis =new BufferedInputStream(fis);
             ois =new ObjectInputStream(bis);
 
-            bikeList = (ArrayList<Bike>) ois.readObject();
+            bikeList = (HashMap<String, Bike>) ois.readObject();
 
-            for(Bike bike : bikeList) {
-                System.out.println(bike);
+            for (Map.Entry<String,Bike> entrySet : bikeList.entrySet()) {
+                System.out.println(entrySet.getKey() + " : " + entrySet.getValue());
             }
 
         }catch(Exception e) {
@@ -213,7 +213,7 @@ public class IO {
         ObjectOutputStream out = null;
 
         try {
-            fos = new FileOutputStream(file,true);
+            fos = new FileOutputStream(file);
             bos = new BufferedOutputStream(fos);
             out = new ObjectOutputStream(bos);
             out.writeObject(rentList);
@@ -232,37 +232,35 @@ public class IO {
         }
         }
 
-        void readRentList() {
+    void readRentList () {
+        File file =new File(fileRoot+"rentlist.txt");
+        FileInputStream fis =null;
+        BufferedInputStream bis =null;
+        ObjectInputStream ois =null;
 
-            File file = new File(fileRoot+"rentlist.txt");
-            FileInputStream fis = null;
-            BufferedInputStream bis = null;
-            ObjectInputStream ois = null;
+        try{
+            fis = new FileInputStream(file);
+            bis = new BufferedInputStream(fis);
+            ois = new ObjectInputStream(bis);
 
-            try{
-                fis = new FileInputStream(file);
-                bis = new BufferedInputStream(fis);
-                ois = new ObjectInputStream(bis);
+            rentList = (ArrayList<RentList>) ois.readObject();
 
-                rentList = (ArrayList<RentList>) ois.readObject();
-
-                for(RentList rentList : rentList) {
-                    System.out.println(rentList);
-                }
-
-            }catch(Exception e) {
-                System.out.println(e.getMessage());
-            }finally{
-                try{
-                    ois.close();
-                    bis.close();
-                    fis.close();
-                }catch(IOException e) {
-                    e.printStackTrace();
-                }
+            for(RentList rent : rentList) { // 왜 사이즈가 0으로 나오지..?
+                System.out.println(rent);
             }
 
+        }catch(Exception e) {
+            System.out.println(e.getMessage());
+        }finally{
+            try{
+                ois.close();
+                bis.close();
+                fis.close();
+            }catch(IOException e) {
+                e.printStackTrace();
+            }
         }
+    }
 
     void loadRentList() {
 
@@ -291,6 +289,4 @@ public class IO {
         }
 
     }
-
-
 }

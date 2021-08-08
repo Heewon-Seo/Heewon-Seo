@@ -1,18 +1,23 @@
 package kr.or.tashow;
 
-import java.io.*;
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.Calendar;
 
 public class RentList implements Serializable {
-    String id;
-    String userPhoneNum;
-    Calendar startTime;
-    Calendar endTime;
+    private String id;
+    private String userPhoneNum;
+    private Calendar startTime;
+    private Calendar endTime;
+    private int fee;
 
-    public RentList(String id, String userPhoneNum) {
+    RentList () {
+        this("",null);
+        this.fee = 0;
+    }
+
+    RentList(String id, Calendar startTime) {
         this.id = id;
-        this.userPhoneNum = userPhoneNum;
+        this.startTime = startTime;
     }
 
     public String getId() {
@@ -45,5 +50,19 @@ public class RentList implements Serializable {
 
     public void setEndTime(Calendar endTime) {
         this.endTime = endTime;
+    }
+
+    public int getFee() { return fee; }
+
+    public void setFee(int fee) { this.fee = fee; }
+
+    @Override
+    public String toString() {
+        return "RentList{" +
+                "id='" + id + '\'' +
+                ", userPhoneNum='" + userPhoneNum + '\'' +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                '}';
     }
 }

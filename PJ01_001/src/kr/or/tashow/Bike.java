@@ -33,14 +33,14 @@ public class Bike implements Serializable {
 
     Bike(BikeType type, int price) {
         this.type = type;
-        this.rentalStatus = RentalStatus.AVAILABLE;
         this.price = price;
+        this.rentalStatus = RentalStatus.AVAILABLE;
     }
 
     @Override
     public String toString() {
         return "Bike{" +
-                ", type=" + type +
+                "type=" + type +
                 ", rentalStatus=" + rentalStatus +
                 ", price=" + price +
                 '}';

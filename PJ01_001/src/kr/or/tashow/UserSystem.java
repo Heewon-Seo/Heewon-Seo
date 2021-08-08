@@ -43,7 +43,7 @@ public class UserSystem {
             System.out.println("이미 등록된 아이디입니다.");
         } else {
             System.out.println("비밀번호를 입력해주세요");
-            System.out.println("비밀번호 형식 : \n<최소 영문 하나 이상 포함\n 특수 문자(!@#$%^&*?_~),숫자,영문(대소문자)만 가능\n6글자 ~ 8글자>");
+            System.out.println("비밀번호 형식 : \n<최소 영문 하나 이상 포함\n 특수 문자(!@#$%^&*?_~),숫자,영문(대소문자)만 가능\n 6글자 ~ 8글자>");
             userPwd = input.nextLine();
             Matcher pwd = userPwdPattern.matcher(this.userPwd);
 
