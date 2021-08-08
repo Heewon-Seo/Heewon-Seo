@@ -7,12 +7,10 @@ import static kr.or.tashow.BikeService.bikeList;
 import static kr.or.tashow.BikeService.rentList;
 
 public class IO {
-    Time time;
-    String fileRoot;
+    private String fileRoot;
 
 
     public IO() {
-        time = new Time();
         fileRoot = "/Users/heewonseo/Documents/1stProject/lists/";
     }
 

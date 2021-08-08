@@ -40,19 +40,27 @@ public class AdminSystem {
                     bikeId = String.format("S-%04d", ++countSingle);
                     bikeList.put(bikeId, new Bike(BikeType.Single, 1000));
                 }
+                displayBikes();
             } else if (input == 2) {
                 for (int i = 0; i < amount; i++) {
                     bikeId = String.format("T-%04d", ++countTwin);
                     bikeList.put(bikeId, new Bike(BikeType.Twin, 2000));
                 }
+                displayBikes();
             } else {
-                System.out.println("잘못 입력");
+                System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
             }
         }
-        System.out.println(bikeList.toString());
-        System.out.println("생성된 1인용 자전거 대수: " + countSingle);
-        System.out.println("생성된 2인용 자전거 대수: " + countTwin);
         return bikeList;
+    }
+
+    void displayBikes() {
+        System.out.println("===========================");
+        System.out.println("자전거가 등록되었습니다!");
+        System.out.println(bikeList.toString());
+        System.out.println("총 보유 1인용 자전거 대수: " + countSingle);
+        System.out.println("총 보유 2인용 자전거 대수: " + countTwin);
+        System.out.println("===========================");
     }
 
     void removeBike() {

@@ -11,7 +11,7 @@ public class Time {
     Calendar test;
     SimpleDateFormat dateFormat;
     int diffHour;
-    int diffMinute;
+    int diffMin;
 
     public Time() {
         dateFormat = new SimpleDateFormat("HH:mm");
@@ -40,14 +40,13 @@ public class Time {
     }
 
     int getTime(Calendar startTime, Calendar endTime) {
-        diffHour = endTime.get(Calendar.HOUR_OF_DAY) - startTime.get(Calendar.HOUR_OF_DAY);
-        diffMinute = endTime.get(Calendar.MINUTE) - startTime.get(Calendar.MINUTE);
-        System.out.println("이용시간: " + diffHour + ":" + diffMinute);
-        if (!(diffMinute ==0)) {
+        diffHour = (int)(endTime.getTimeInMillis() - startTime.getTimeInMillis())/1000/(60*60);
+        diffMin = (int)((endTime.getTimeInMillis() - startTime.getTimeInMillis())/1000/60 - diffHour*60);
+        System.out.println("이용시간: " + diffHour + "시간 " + diffMin + "분");
+        if (!(diffMin ==0)) {
             return ++diffHour;
         } else {
             return diffHour;
         }
     }
-
 }

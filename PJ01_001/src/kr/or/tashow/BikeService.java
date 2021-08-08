@@ -13,12 +13,14 @@ public class BikeService implements Serializable {
     IO io;
     User user;
     int index;
+    int totalSales;
 
     public BikeService() {
         time = new Time();
         io = new IO();
         user = new User();
         index = 0;
+        totalSales = 0;
     }
 
     void rentalBike(String type) { // 대여
@@ -29,7 +31,10 @@ public class BikeService implements Serializable {
                 if (key.startsWith(type) && bikeList.get(key).getRentalStatus().equals(RentalStatus.AVAILABLE)) {
                     Bike bike = bikeList.get(key);
                     bike.setRentalStatus(RentalStatus.UNAVAILABLE);
-                    System.out.println("대여된 자전거: " + key + bike.getRentalStatus());
+                    System.out.println("====================================================");
+                    System.out.println("고객님의 자전거 번호: " + key);
+                    System.out.println("반납 시에 자전거 번호를 입력하셔야 하니, 잘 기억해 주세요!");
+                    System.out.println("====================================================");
                     rentList.add(new RentList(key,time.setStartTime()));
                     io.writeBikeList();
                     io.writeRentList();
@@ -65,6 +70,8 @@ public class BikeService implements Serializable {
 
     void payFee(int index, int fee, String id) {
         System.out.println("결제요금: " + fee + "원");
+        System.out.println("[요금안내] 1시간 당 1인용 : 1000원, 2인용 : 2000원");
+        System.out.println("* 요금은 시간 단위로 계산되어 1분 초과 시부터 올림 적용됩니다");
         System.out.println("결제하시겠습니까?");
         System.out.println("1. 예 | 2. 아니오 (취소)");
         Scanner scan = new Scanner(System.in);
@@ -72,6 +79,7 @@ public class BikeService implements Serializable {
         if (input == 1) {
             rentList.get(index).setFee(fee);
             bikeList.get(id).setRentalStatus(RentalStatus.AVAILABLE); // 반납처리
+            totalSales += totalSales;
             io.writeRentList();
             System.out.println("결제가 완료되었습니다.");
             System.out.println("이용해 주셔서 감사합니다.");
@@ -81,8 +89,6 @@ public class BikeService implements Serializable {
             io.writeRentList();
             System.out.println("결제가 취소되었습니다");
             System.out.println("이전화면으로 돌아갑니다");
-        } else {
-            System.out.println("잘못 입력");
         }
     }
 
@@ -94,8 +100,6 @@ public class BikeService implements Serializable {
             fee = time.getTime(startTime,endTime)*1000;
         }else if(bikeNum.startsWith("T")) {
             fee = time.getTime(startTime,endTime)*2000;
-        }else{
-            System.out.println("잘못입력");
         }
         return fee;
     }

@@ -39,11 +39,11 @@ public class Bike implements Serializable {
 
     @Override
     public String toString() {
-        return "Bike{" +
-                "type=" + type +
-                ", rentalStatus=" + rentalStatus +
-                ", price=" + price +
-                '}';
+        return "[" +
+                "종류: " + type +
+                "\t 가격: " + price +
+                "] [상태: " + rentalStatus +
+                "]\n";
     }
 
 

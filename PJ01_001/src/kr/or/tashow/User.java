@@ -75,10 +75,10 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "User{" +
-                "userPhoneNum='" + userPhoneNum + '\'' +
-                ", userName='" + userName + '\'' +
-                ", userPwd='" + userPwd + '\'' +
-                '}';
+        return "[" +
+                "휴대폰번호(ID): '" + userPhoneNum + '\'' +
+                "\t 이름: " + userName + '\'' +
+                "\t 비밀번호" + userPwd + '\'' +
+                "]\n";
     }
 }

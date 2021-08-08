@@ -1,6 +1,9 @@
 package kr.or.tashow;
 
+import javax.xml.stream.events.EndDocument;
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class RentList implements Serializable {
@@ -8,11 +11,17 @@ public class RentList implements Serializable {
     private String userPhoneNum;
     private Calendar startTime;
     private Calendar endTime;
+    private String startTimeStr;
+    private String endTimeStr;
+    private DateFormat format;
     private int fee;
 
     RentList () {
         this("",null);
         this.fee = 0;
+        format = new SimpleDateFormat("HH:mm");
+        startTimeStr = format.format(startTime);
+        endTimeStr = format.format(endTime);
     }
 
     RentList(String id, Calendar startTime) {
@@ -58,12 +67,12 @@ public class RentList implements Serializable {
 
     @Override
     public String toString() {
-        return "RentList{" +
-                "id='" + id + '\'' +
-                ", userPhoneNum='" + userPhoneNum + '\'' +
-                ", startTime=" + startTime +
-                ", endTime=" + endTime +
-                ", fee=" + fee +
-                '}';
+        return "====================================" +
+                "일련번호: " + id + '\'' +
+                "\t 대여자ID: '" + userPhoneNum + '\'' +
+                "\n 대여 시작: " + startTimeStr +
+                "\n 대여 종료" + endTimeStr +
+                "\n 총 요금: " + fee +
+                "====================================\n";
     }
 }
