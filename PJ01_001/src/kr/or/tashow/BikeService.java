@@ -1,6 +1,7 @@
 package kr.or.tashow;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -102,13 +103,16 @@ public class BikeService implements Serializable {
         return fee;
     }
 
-    void calculateTotalSales() { // 안됨
+    void calculateTotalSales() {
+        DecimalFormat df = new DecimalFormat("#,###");
         io.loadRentList();
+        int fee = 0;
         int totalSales = 0;
         for(int i = 0 ; i < rentList.size() ; i++) {
-            totalSales = rentList.get(i).getFee();
-            totalSales += totalSales;
+            fee = rentList.get(i).getFee();
+            totalSales += fee;
         }
-        System.out.println("총 매출액: " + totalSales);
+        System.out.println("=========== 현재 기준 총 매출액 ============");
+        System.out.println(df.format(totalSales) + "원");
     }
 }
