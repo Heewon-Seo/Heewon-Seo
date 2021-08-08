@@ -82,7 +82,7 @@ public class UserSystem {
             System.out.println("ID를 입력해주세요");
             userPhoneNum = input.nextLine().trim();
 
-            Matcher phone = userPhonNumPattenrn.matcher(userPhoneNum);
+            Matcher phone = userPhonNumPattern.matcher(userPhoneNum);
             if (phone.find() == false) {
                 System.out.println("형식오류. 재입력");
                 System.out.println("ex) 010-1234-5678 ");
