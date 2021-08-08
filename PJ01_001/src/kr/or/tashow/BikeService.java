@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class BikeService implements Serializable {
     static HashMap<String,Bike> bikeList = new HashMap<>();
@@ -42,14 +43,18 @@ public class BikeService implements Serializable {
         for(String key : bikeList.keySet()) { // bikeList
             io.loadRentList();
             if (bikeList.containsKey(id) && bikeList.get(id).getRentalStatus().equals(RentalStatus.UNAVAILABLE)) { // 리스트에 아이디값과 인자로 받은 아이디값과 같으면
-                bikeList.get(id).setRentalStatus(RentalStatus.AVAILABLE);
+                Bike bike = bikeList.get(id);
+                bike.setRentalStatus(RentalStatus.AVAILABLE);
                 for (int i = 0 ; i < rentList.size() ; i++) {
                     if (rentList.get(i).getId().contains(id)) {
                         time.inputEndTime(i);
+                        int fee = calculateFee(id,rentList.get(i).getStartTime(),rentList.get(i).getEndTime());
+                        payFee(i,fee);
+                        io.writeBikeList();
+                        io.writeRentList();
+                        break;
                     }
                 }
-                io.writeBikeList();
-                io.writeRentList();
                 break;
             } else {
                 System.out.println("일련번호가 일치하지 않습니다.");
@@ -57,7 +62,23 @@ public class BikeService implements Serializable {
         }
     }
 
-    void payFee() {
+    void payFee(int index, int fee) {
+        System.out.println("결제요금: " + fee + "원");
+        System.out.println("결제하시겠습니까?");
+        System.out.println("1. 예 | 2. 아니오 (취소)");
+        Scanner scan = new Scanner(System.in);
+        int input = Integer.parseInt(scan.nextLine());
+        if (input == 1) {
+            rentList.get(index).setFee(fee);
+            io.writeRentList();
+            System.out.println("결제가 완료되었습니다.");
+            System.out.println("이용해 주셔서 감사합니다.");
+        } else if (input == 2) {
+            System.out.println("결제가 취소되었습니다");
+            System.out.println("이전화면으로 돌아갑니다");
+        } else {
+            System.out.println("잘못 입력");
+        }
     }
 
 

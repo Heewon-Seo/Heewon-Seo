@@ -63,6 +63,7 @@ public class RentList implements Serializable {
                 ", userPhoneNum='" + userPhoneNum + '\'' +
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +
+                ", fee=" + fee +
                 '}';
     }
 }
