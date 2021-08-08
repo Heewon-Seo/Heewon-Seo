@@ -89,7 +89,6 @@ public class IO {
                 e.printStackTrace();
             }
         }
-
     }
 
     void writeUserList() {// Filewrite > UserList
@@ -292,6 +291,28 @@ public class IO {
                 e.printStackTrace();
             }
         }
+    }
 
+    void deleteBikeList() {
+        // 파일의 경로 + 파일명
+        File file = new File(fileRoot+"bikelist.txt");
+        FileInputStream fis = null;
+        BufferedInputStream bis = null;
+        ObjectInputStream ois = null;
+
+        File deleteFile = new File(fileRoot+"bikelist.txt");
+
+        // 파일이 존재하는지 체크 존재할경우 true, 존재하지않을경우 false
+        if(deleteFile.exists()) {
+
+            // 파일을 삭제합니다.
+            deleteFile.delete();
+
+            System.out.println("자전거 리스트를 삭제하였습니다.");
+
+        } else {
+            System.out.println("파일이 존재하지 않습니다.");
+        }
+        writeBikeList();
     }
 }

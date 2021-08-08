@@ -1,7 +1,9 @@
 package kr.or.tashow;
 
 import java.io.Serializable;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -23,6 +25,7 @@ public class BikeService implements Serializable {
     }
 
     void rentalBike(String type) { // 대여
+        DateFormat df = new SimpleDateFormat("HH:mm");
         if (bikeList.isEmpty()) {
             System.out.println("대여 가능한 자전거가 없습니다");
         } else {
@@ -32,9 +35,11 @@ public class BikeService implements Serializable {
                     bike.setRentalStatus(RentalStatus.UNAVAILABLE);
                     System.out.println("====================================================");
                     System.out.println("            고객님의 자전거 번호: " + key);
+                    System.out.println("            대여 시작 시각: " + df.format(time.setStartTime().getTime()));
                     System.out.println("반납 시에 자전거 번호를 입력하셔야 하니, 잘 기억해 주세요!");
                     System.out.println("====================================================");
-                    rentList.add(new RentList(key,time.setStartTime()));
+                    rentList.add(new RentList(key,time.setStartTime(),Menu.cur_user_id));
+                    System.out.println(rentList.size());
                     io.writeBikeList();
                     io.writeRentList();
                     break;
@@ -46,7 +51,7 @@ public class BikeService implements Serializable {
     void returnBike(String id) { // 반납
         for(String key : bikeList.keySet()) { // bikeList
             io.loadRentList();
-            if (bikeList.containsKey(id) && bikeList.get(id).getRentalStatus().equals(RentalStatus.UNAVAILABLE)) { // 리스트에 아이디값과 인자로 받은 아이디값과 같으면
+            if (bikeList.containsKey(id) && bikeList.get(id).getRentalStatus().equals(RentalStatus.UNAVAILABLE)) {
                 Bike bike = bikeList.get(id);
                 for (int i = 0 ; i < rentList.size() ; i++) {
                     if (rentList.get(i).getId().contains(id)) {
@@ -78,10 +83,10 @@ public class BikeService implements Serializable {
         if (input == 1) {
             rentList.get(index).setFee(fee);
             bikeList.get(id).setRentalStatus(RentalStatus.AVAILABLE); // 반납처리
-
             io.writeRentList();
+            io.writeBikeList();
             System.out.println("결제가 완료되었습니다.");
-            System.out.println("이용해 주셔서 감사합니다.");
+            System.out.println("이용해 주셔서 감사합니다 :D");
         } else if (input == 2) {
             rentList.get(index).setFee(0);
             rentList.get(index).setEndTime(null);
@@ -113,6 +118,6 @@ public class BikeService implements Serializable {
             totalSales += fee;
         }
         System.out.println("=========== 현재 기준 총 매출액 ============");
-        System.out.println(df.format(totalSales) + "원");
+        System.out.println(df.format(totalSales) + "원\n");
     }
 }

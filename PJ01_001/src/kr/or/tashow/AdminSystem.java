@@ -11,16 +11,12 @@ public class AdminSystem {
     String pw;
     BikeService bikeService;
     IO io;
-    int countSingle;
-    int countTwin;
     HashMap<String, String> adminMap = new HashMap<>();
 
     public AdminSystem() {
         bike = new Bike();
         bikeService = new BikeService();
         io = new IO();
-        this.countSingle = 0;
-        this.countTwin = 0;
         this.id = "";
         this.pw = "";
         adminMap.put("admin", "admin!");
@@ -32,37 +28,31 @@ public class AdminSystem {
         System.out.println("1. 1인용 자전거 | 2. 2인용 자전거");
         int input = Integer.parseInt(scan.nextLine());
         if (!(input == 1 || input == 2)) {
-            System.out.println("다시 입력해주세요.");
+            System.out.println("1인용 혹은 2인용만 등록 가능합니다");
+            System.out.println("1인용은 1번, 2인용은 2번을 입력해 주세요");
         } else {
-            System.out.println("자전거 대수를 입력하세요");
+            System.out.println("등록할 자전거 대수를 입력하세요");
             int amount = Integer.parseInt(scan.nextLine());
             String bikeId = "";
             if (input == 1) {
                 for (int i = 0; i < amount; i++) {
-                    bikeId = String.format("S-%04d", ++countSingle);
+                    bikeId = String.format("S-%04d", bikeList.size());
                     bikeList.put(bikeId, new Bike(BikeType.Single, 1000));
+                    io.writeBikeList();
+                    System.out.println("[" + bikeId + "가 등록되었습니다]");
                 }
-                displayBikes();
             } else if (input == 2) {
                 for (int i = 0; i < amount; i++) {
-                    bikeId = String.format("T-%04d", ++countTwin);
+                    bikeId = String.format("T-%04d", bikeList.size());
                     bikeList.put(bikeId, new Bike(BikeType.Twin, 2000));
+                    io.writeBikeList();
+                    System.out.println("[" + bikeId + "가 등록되었습니다]");
                 }
-                displayBikes();
             } else {
                 System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
             }
         }
         return bikeList;
-    }
-
-    void displayBikes() {
-        System.out.println("===========================");
-        System.out.println("자전거가 등록되었습니다!");
-        io.readBikeList();
-        System.out.println("총 보유 1인용 자전거 대수: " + countSingle);
-        System.out.println("총 보유 2인용 자전거 대수: " + countTwin);
-        System.out.println("===========================");
     }
 
     void removeBike() {
