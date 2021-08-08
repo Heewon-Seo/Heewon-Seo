@@ -48,9 +48,8 @@ public class BikeService implements Serializable {
                     if (rentList.get(i).getId().contains(id)) {
                         // time.inputEndTime(i); > 진짜 시간
                         time.testEndTime(i); // > 테스트용 시간
-                        int fee = calculateFee(id,rentList.get(i).getStartTime(),rentList.get(i).getEndTime());
-                        payFee(i,fee);
-                        bike.setRentalStatus(RentalStatus.AVAILABLE);
+                        int fee = calculateFee(id,rentList.get(i).getStartTime(),rentList.get(i).getEndTime()); // 시간입력
+                        payFee(i,fee,id); // 계산
                         io.writeBikeList();
                         io.writeRentList();
                         break;
@@ -64,7 +63,7 @@ public class BikeService implements Serializable {
         }
     }
 
-    void payFee(int index, int fee) {
+    void payFee(int index, int fee, String id) {
         System.out.println("결제요금: " + fee + "원");
         System.out.println("결제하시겠습니까?");
         System.out.println("1. 예 | 2. 아니오 (취소)");
@@ -72,6 +71,7 @@ public class BikeService implements Serializable {
         int input = Integer.parseInt(scan.nextLine());
         if (input == 1) {
             rentList.get(index).setFee(fee);
+            bikeList.get(id).setRentalStatus(RentalStatus.AVAILABLE); // 반납처리
             io.writeRentList();
             System.out.println("결제가 완료되었습니다.");
             System.out.println("이용해 주셔서 감사합니다.");
