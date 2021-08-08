@@ -39,11 +39,9 @@ public class Bike implements Serializable {
 
     @Override
     public String toString() {
-        return "[" +
-                "종류: " + type +
-                "\t 가격: " + price +
-                "] [상태: " + rentalStatus +
-                "]\n";
+        return " 종류: " + type +
+                " | 가격: " + price +
+                " | 상태: " + rentalStatus;
     }
 
 
@@ -58,7 +56,6 @@ public class Bike implements Serializable {
     public int getPrice() {
         return price;
     }
-
 
     public void setType(BikeType type) {
         this.type = type;

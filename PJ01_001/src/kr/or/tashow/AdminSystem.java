@@ -10,6 +10,7 @@ public class AdminSystem {
     String id;
     String pw;
     BikeService bikeService;
+    IO io;
     int countSingle;
     int countTwin;
     HashMap<String, String> adminMap = new HashMap<>();
@@ -17,6 +18,7 @@ public class AdminSystem {
     public AdminSystem() {
         bike = new Bike();
         bikeService = new BikeService();
+        io = new IO();
         this.countSingle = 0;
         this.countTwin = 0;
         this.id = "";
@@ -24,7 +26,7 @@ public class AdminSystem {
         adminMap.put("admin", "admin!");
     }
 
-    HashMap<String, Bike> addBike() {
+    HashMap<String, Bike> addBike() { // try, catch 해야됨
         Scanner scan = new Scanner(System.in);
         System.out.println("등록하고자 하는 자전거의 종류를 입력하세요");
         System.out.println("1. 1인용 자전거 | 2. 2인용 자전거");
@@ -57,7 +59,7 @@ public class AdminSystem {
     void displayBikes() {
         System.out.println("===========================");
         System.out.println("자전거가 등록되었습니다!");
-        System.out.println(bikeList.toString());
+        io.readBikeList();
         System.out.println("총 보유 1인용 자전거 대수: " + countSingle);
         System.out.println("총 보유 2인용 자전거 대수: " + countTwin);
         System.out.println("===========================");

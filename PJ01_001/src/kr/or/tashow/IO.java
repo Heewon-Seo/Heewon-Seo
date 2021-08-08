@@ -104,7 +104,7 @@ public class IO {
             oos = new ObjectOutputStream(bos);
 
             oos.writeObject(UserSystem.userList);
-            System.out.println("회원 목록이 저장되었습니다.");
+
         }catch(Exception e) {
             System.out.println(e.getMessage());
         }finally{
@@ -131,9 +131,13 @@ public class IO {
 
             UserSystem.userList = (HashMap<String, User>) ois.readObject();
 
+            System.out.println("=====================비트를 타쇼 회원 리스트=====================");
+
             for (Map.Entry<String,User> entrySet : UserSystem.userList.entrySet()) {
-                System.out.println(entrySet.getKey() + " : " + entrySet.getValue());
+                System.out.println(entrySet.getValue());
             }
+
+            System.out.println("===============================================================");
 
         }catch(Exception e) {
             System.out.println(e.getMessage());
@@ -160,7 +164,7 @@ public class IO {
             oos =new ObjectOutputStream(bos);
 
             oos.writeObject(bikeList);
-            System.out.println("자전거 목록이 저장되었습니다.");
+
         }catch(Exception e) {
             System.out.println(e.getMessage());
         }finally{
@@ -187,9 +191,13 @@ public class IO {
 
             bikeList = (HashMap<String, Bike>) ois.readObject();
 
+            System.out.println("====== 비트를 타쇼 자전거 등록 리스트 ======");
+
             for (Map.Entry<String,Bike> entrySet : bikeList.entrySet()) {
-                System.out.println(entrySet.getKey() + " : " + entrySet.getValue());
+                System.out.println("["+entrySet.getKey()+"]" + entrySet.getValue());
             }
+
+            System.out.println("========================================");
 
         }catch(Exception e) {
             System.out.println(e.getMessage());
@@ -215,7 +223,6 @@ public class IO {
             bos = new BufferedOutputStream(fos);
             out = new ObjectOutputStream(bos);
             out.writeObject(rentList);
-            System.out.println("대여내역이 저장되었습니다");
 
         } catch (Exception e) {
             System.out.println(e.getMessage());

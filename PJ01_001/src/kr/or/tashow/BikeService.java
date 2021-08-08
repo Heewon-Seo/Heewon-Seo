@@ -13,14 +13,12 @@ public class BikeService implements Serializable {
     IO io;
     User user;
     int index;
-    int totalSales;
 
     public BikeService() {
         time = new Time();
         io = new IO();
         user = new User();
         index = 0;
-        totalSales = 0;
     }
 
     void rentalBike(String type) { // 대여
@@ -32,7 +30,7 @@ public class BikeService implements Serializable {
                     Bike bike = bikeList.get(key);
                     bike.setRentalStatus(RentalStatus.UNAVAILABLE);
                     System.out.println("====================================================");
-                    System.out.println("고객님의 자전거 번호: " + key);
+                    System.out.println("            고객님의 자전거 번호: " + key);
                     System.out.println("반납 시에 자전거 번호를 입력하셔야 하니, 잘 기억해 주세요!");
                     System.out.println("====================================================");
                     rentList.add(new RentList(key,time.setStartTime()));
@@ -79,7 +77,7 @@ public class BikeService implements Serializable {
         if (input == 1) {
             rentList.get(index).setFee(fee);
             bikeList.get(id).setRentalStatus(RentalStatus.AVAILABLE); // 반납처리
-            totalSales += totalSales;
+
             io.writeRentList();
             System.out.println("결제가 완료되었습니다.");
             System.out.println("이용해 주셔서 감사합니다.");
@@ -104,12 +102,13 @@ public class BikeService implements Serializable {
         return fee;
     }
 
-    void calculateTotalSales() {
-
+    void calculateTotalSales() { // 안됨
+        io.loadRentList();
+        int totalSales = 0;
+        for(int i = 0 ; i < rentList.size() ; i++) {
+            totalSales = rentList.get(i).getFee();
+            totalSales += totalSales;
+        }
+        System.out.println("총 매출액: " + totalSales);
     }
-
-
-
-
-
 }

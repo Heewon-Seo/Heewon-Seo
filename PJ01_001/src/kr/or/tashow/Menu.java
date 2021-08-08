@@ -3,7 +3,7 @@ package kr.or.tashow;
 import java.util.Scanner;
 
 public class Menu {
-    Scanner input = new Scanner(System.in);
+    Scanner input;
     User user;
     Admin admin;
     IO io;
@@ -12,6 +12,7 @@ public class Menu {
     AdminSystem adminSystem;
 
     public Menu() {
+        input = new Scanner(System.in);
         user = new User();
         admin = new Admin();
         io = new IO();
@@ -25,12 +26,12 @@ public class Menu {
         // 회원가입, 사용자 인증, 관리자 인증, 프로그램 종료
         while(true) {
             System.out.println("*****비트를 타쇼 자전거 대여 시스템*****");
-            System.out.println("원하는 메뉴의 번호를 입력하세요");
-            System.out.println("1. 회원가입");
-            System.out.println("2. 사용자인증");
-            System.out.println("3. 관리자인증");
-            System.out.println("4. 프로그램종료");
-
+            System.out.println("     원하는 메뉴의 번호를 입력하세요");
+            System.out.println("        1. 회원가입");
+            System.out.println("        2. 사용자인증");
+            System.out.println("        3. 관리자인증");
+            System.out.println("        4. 프로그램종료");
+            System.out.println("*************************************");
             int menu = 0;
         do {
             try {
@@ -60,10 +61,8 @@ public class Menu {
                     displayAdminMenu();
                     break;
                 case 4:
+                    System.out.println("이용해주셔서 감사합니다!");
                     return;
-                default:
-                    System.out.println("잘못입력");
-                    break;
             }
 
         }
@@ -73,11 +72,13 @@ public class Menu {
         // 매출관리, 회원목록조회, 자전거관리, 프로그램 종료
 
         while(true) {
+            System.out.println("===========비트를 타쇼 관리자 메뉴===========");
             System.out.println("원하는 메뉴의 번호를 입력하세요");
             System.out.println("1. 매출조회");
             System.out.println("2. 회원목록조회");
             System.out.println("3. 자전거관리");
             System.out.println("4. 초기화면으로");
+            System.out.println("==========================================");
             int menu = 0;
 
         do {
@@ -105,9 +106,6 @@ public class Menu {
                         break;
                     case 4:
                         return;
-                    default:
-                        System.out.println("잘못입력");
-                        break;
                 }
         }
     }
@@ -116,7 +114,6 @@ public class Menu {
         // 대여하기 (> 자전거 목록조회), 반납하기 (> 결제 및 반납), 프로그램 종료
 
         while(true) {
-
             System.out.println("원하는 메뉴의 번호를 입력하세요");
             System.out.println("1. 대여하기 (1인용)");
             System.out.println("2. 대여하기 (2인용)");
@@ -151,9 +148,6 @@ public class Menu {
                         break;
                     case 4:
                         return;
-                    default:
-                        System.out.println("잘못입력");
-                        break;
                 }
             }
     }
@@ -195,9 +189,6 @@ public class Menu {
                     io.readRentList();
                     break;
                 case 5:
-                    break; // 이전메뉴 동작 안함
-                default:
-                    System.out.println("잘못입력");
                     break;
             }
         }
