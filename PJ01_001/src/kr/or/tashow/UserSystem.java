@@ -16,7 +16,7 @@ public class UserSystem {
     String userName;
     private Pattern userPhonNumPattern = Pattern.compile("^01(0|1|6|7|8|9)-\\d{3,4}-\\d{4}$"); // 핸드폰 번호 형식
     private Pattern userNamePattern = Pattern.compile("^[가-힣]*$"); // 이름 형식 (한글만)
-    private Pattern userPwdPattern = Pattern.compile("^[0-9a-zA-Z!@#$%^&?_~]{6,8}$"); // 비밀번호 형식
+    private Pattern userPwdPattern = Pattern.compile("^(?=.*[A-Za-z])[A-Za-z!@#$%^&?_~\\d]{6,8}$"); // 비밀번호 형식
 
     public UserSystem() {
         user = new User();
