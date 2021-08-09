@@ -102,7 +102,7 @@ public class UserSystem {
                         System.out.println("***************");
                         System.out.println();
                         Menu.cur_user_id = userPhoneNum;
-                        break;
+                        return userPhoneNum;
                     } else {
                         if (cnt > 1) {
                             System.out.println("입력하신 비밀번호가 잘못되었습니다");
@@ -114,7 +114,7 @@ public class UserSystem {
                     }
                 }
             }
-            return userPhoneNum;
+
         }
     }
 }
