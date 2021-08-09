@@ -21,6 +21,13 @@ public class Time {
         startTime = Calendar.getInstance();
         return startTime;
     }
+
+    Calendar setDefaultEndTime () {
+        endTime = Calendar.getInstance();
+        endTime.set(Calendar.HOUR_OF_DAY,0);
+        endTime.set(Calendar.MINUTE,0);
+        return endTime;
+    }
     void setEndTime (int index){
         endTime = Calendar.getInstance();
         System.out.println("종료 시각: " + dateFormat.format(endTime.getTime()));

@@ -10,9 +10,10 @@ public class RentList implements Serializable {
     private Calendar endTime;
     private int fee;
 
-    RentList(String id, Calendar startTime, String userPhoneNum) {
+    RentList(String id, Calendar startTime, Calendar endTime, String userPhoneNum) {
         this.id = id;
         this.startTime = startTime;
+        this.endTime = endTime;
         this.userPhoneNum = userPhoneNum;
     }
 
@@ -56,8 +57,7 @@ public class RentList implements Serializable {
                 "일련번호: " + id +
                 " | 대여자ID: " + userPhoneNum +
                 "\n대여시작: " + startTime.get(Calendar.HOUR_OF_DAY) + "시" + startTime.get(Calendar.MINUTE) + "분" +
-                //" | 대여종료: " + endTime.get(Calendar.HOUR_OF_DAY) + "시" + endTime.get(Calendar.MINUTE) + "분" +
-                // 이거 왜 하면 읽어오기가 안될까 슬퍼
+                " | 대여종료: " + endTime.get(Calendar.HOUR_OF_DAY) + "시" + endTime.get(Calendar.MINUTE) + "분" +
                 " | 결제요금: " + fee +
                 "\n====================================\n";
     }

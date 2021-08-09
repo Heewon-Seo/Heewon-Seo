@@ -34,7 +34,7 @@ public class Menu {
             System.out.println("        3. 관리자 인증");
             System.out.println("        4. 프로그램 종료");
             System.out.println("**********************************");
-            int menu = 0;
+            int menu;
         do {
             try {
                 menu = Integer.parseInt(input.nextLine());
@@ -82,7 +82,7 @@ public class Menu {
             System.out.println("            3. 자전거 관리");
             System.out.println("            4. 초기 화면");
             System.out.println("*********************************************");
-            int menu = 0;
+            int menu;
 
         do {
             try {
@@ -125,7 +125,7 @@ public class Menu {
             System.out.println("            3. 결제 및 반납");
             System.out.println("            4. 이전 메뉴");
             System.out.println("*******************************************");
-            int menu = 0;
+            int menu;
             do {
                 try {
                     menu = Integer.parseInt(input.nextLine());
@@ -170,7 +170,7 @@ public class Menu {
             System.out.println("            4. 자전거 대여 내역 조회");
             System.out.println("            5. 이전 메뉴");
             System.out.println("*******************************************");
-            int menu = 0;
+            int menu;
             do {
                 try {
                     menu = Integer.parseInt(input.nextLine());
@@ -190,7 +190,7 @@ public class Menu {
                     adminSystem.addBike();
                     break;
                 case 2:
-                    io.deleteBikeList();
+                    adminSystem.removeBike();
                     break;
                 case 3:
                     io.readBikeList();
