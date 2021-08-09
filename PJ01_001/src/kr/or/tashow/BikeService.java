@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class BikeService implements Serializable {
-    static HashMap<String,Bike> bikeList = new HashMap<>();
+    static HashMap<String, Bike> bikeList = new HashMap<>();
     static ArrayList<RentList> rentList = new ArrayList<>();
     Time time;
     IO io;
@@ -30,8 +30,8 @@ public class BikeService implements Serializable {
     void rentalBike(String type) { // 대여
         DateFormat df = new SimpleDateFormat("HH:mm");
         checkAvailable();
-        if (bikeList.isEmpty() || (type.equals("S") && availableSingleBikes==0)
-                || (type.equals("T") && availableTwinBikes==0)) {
+        if (bikeList.isEmpty() || (type.equals("S") && availableSingleBikes == 0)
+                || (type.equals("T") && availableTwinBikes == 0)) {
             System.out.println("대여 가능한 자전거가 없습니다");
         } else {
             for (String key : bikeList.keySet()) {
@@ -43,7 +43,7 @@ public class BikeService implements Serializable {
                     System.out.println("            대여 시작 시각: " + df.format(time.setStartTime().getTime()));
                     System.out.println(" ** 반납 시에 자전거 번호를 입력하셔야 하니, 잘 기억해 주세요! **");
                     System.out.println("====================================================");
-                    rentList.add(new RentList(key,time.setStartTime(),time.setDefaultEndTime(),Menu.cur_user_id));
+                    rentList.add(new RentList(key, time.setStartTime(), time.setDefaultEndTime(), Menu.cur_user_id));
                     // 기본 종료 시각을 강제로 부여 (0시0분)
                     io.writeBikeList();
                     io.writeRentList();
@@ -53,10 +53,10 @@ public class BikeService implements Serializable {
         }
     }
 
-    void checkAvailable () { // 대여 가능한 자전거 대수 계산
+    void checkAvailable() { // 대여 가능한 자전거 대수 계산
         availableSingleBikes = 0;
         availableTwinBikes = 0;
-        for (Map.Entry<String,Bike> entrySet : bikeList.entrySet()) {
+        for (Map.Entry<String, Bike> entrySet : bikeList.entrySet()) {
             BikeType type = entrySet.getValue().getType();
             RentalStatus status = entrySet.getValue().getRentalStatus();
             if (type.equals(BikeType.Single) && status.equals(RentalStatus.AVAILABLE)) {
@@ -75,16 +75,16 @@ public class BikeService implements Serializable {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        for(String key : bikeList.keySet()) { // bikeList
+        for (String key : bikeList.keySet()) { // bikeList
             io.loadRentList();
             if (bikeList.containsKey(id) && bikeList.get(id).getRentalStatus().equals(RentalStatus.UNAVAILABLE)) {
-                for (int i = 0 ; i < rentList.size() ; i++) {
+                for (int i = 0; i < rentList.size(); i++) {
                     if (rentList.get(i).getId().contains(id)) {
                         RentList list = rentList.get(i);
                         // time.inputEndTime(i); > 진짜 시간
                         time.testEndTime(i); // > 테스트용 시간
-                        int fee = calculateFee(id,list.getStartTime(),list.getEndTime()); // 시간입력
-                        payFee(i,fee,id); // 계산
+                        int fee = calculateFee(id, list.getStartTime(), list.getEndTime()); // 시간입력
+                        payFee(i, fee, id); // 계산
                         io.writeBikeList();
                         io.writeRentList();
                         break;
@@ -121,8 +121,8 @@ public class BikeService implements Serializable {
         } else if (input == 2) {
             rentList.get(index).setFee(0);
             Calendar defaultTime = Calendar.getInstance(); // time.setDefaultTime 쓰면 오류나서 일단 이렇게 해뒀음
-            defaultTime.set(Calendar.HOUR_OF_DAY,0);
-            defaultTime.set(Calendar.MINUTE,0);
+            defaultTime.set(Calendar.HOUR_OF_DAY, 0);
+            defaultTime.set(Calendar.MINUTE, 0);
             rentList.get(index).setEndTime(defaultTime);
             io.writeRentList();
             System.out.println("결제가 취소되었습니다");
@@ -132,10 +132,10 @@ public class BikeService implements Serializable {
 
     int calculateFee(String bikeNum, Calendar startTime, Calendar endTime) {
         int fee = 0;
-        if(bikeNum.startsWith("S")) {
-            fee = time.getTime(startTime,endTime)*1000;
-        }else if(bikeNum.startsWith("T")) {
-            fee = time.getTime(startTime,endTime)*2000;
+        if (bikeNum.startsWith("S")) {
+            fee = time.getTime(startTime, endTime) * 1000;
+        } else if (bikeNum.startsWith("T")) {
+            fee = time.getTime(startTime, endTime) * 2000;
         }
         return fee;
     }

@@ -27,7 +27,7 @@ public class Bike implements Serializable {
     private RentalStatus rentalStatus; //대여가능, 대여중
     private int price; // 가격
 
-    Bike () {
+    Bike() {
 
     }
 
@@ -49,20 +49,20 @@ public class Bike implements Serializable {
         return rentalStatus;
     }
 
-    public BikeType getType() {
-        return type;
+    public void setRentalStatus(RentalStatus rentalStatus) {
+        this.rentalStatus = rentalStatus;
     }
 
-    public int getPrice() {
-        return price;
+    public BikeType getType() {
+        return type;
     }
 
     public void setType(BikeType type) {
         this.type = type;
     }
 
-    public void setRentalStatus(RentalStatus rentalStatus) {
-        this.rentalStatus = rentalStatus;
+    public int getPrice() {
+        return price;
     }
 
     public void setPrice(int price) {

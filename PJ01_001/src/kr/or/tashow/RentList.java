@@ -33,7 +33,9 @@ public class RentList implements Serializable {
         this.userPhoneNum = userPhoneNum;
     }
 
-    public Calendar getStartTime() { return startTime; }
+    public Calendar getStartTime() {
+        return startTime;
+    }
 
     public void setStartTime(Calendar startTime) {
         this.startTime = startTime;
@@ -47,9 +49,13 @@ public class RentList implements Serializable {
         this.endTime = endTime;
     }
 
-    public int getFee() { return fee; }
+    public int getFee() {
+        return fee;
+    }
 
-    public void setFee(int fee) { this.fee = fee; }
+    public void setFee(int fee) {
+        this.fee = fee;
+    }
 
     @Override
     public String toString() {

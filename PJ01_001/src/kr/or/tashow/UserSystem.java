@@ -14,7 +14,9 @@ public class UserSystem {
     String userPhoneNum;
     String userPwd;
     String userName;
-
+    private Pattern userPhonNumPattern = Pattern.compile("^01(0|1|6|7|8|9)-\\d{3,4}-\\d{4}$"); // 핸드폰 번호 형식
+    private Pattern userNamePattern = Pattern.compile("^[가-힣]*$"); // 이름 형식 (한글만)
+    private Pattern userPwdPattern = Pattern.compile("^(?=.[a-zA-Z])[0-9a-zA-Z!@#$%^&?_~]{6,8}$"); // 비밀번호 형식
     public UserSystem() {
         user = new User();
         input = new Scanner(System.in);
@@ -23,10 +25,6 @@ public class UserSystem {
         userPwd = "";
         userName = "";
     }
-
-    private Pattern userPhonNumPattern = Pattern.compile("^01(0|1|6|7|8|9)-\\d{3,4}-\\d{4}$"); // 핸드폰 번호 형식
-    private Pattern userNamePattern = Pattern.compile("^[가-힣]*$"); // 이름 형식 (한글만)
-    private Pattern userPwdPattern =Pattern.compile("^(?=.[a-zA-Z])[0-9a-zA-Z!@#$%^&?_~]{6,8}$"); // 비밀번호 형식
 
     void singUp() {
         while (true) { // 휴대폰 번호 입력 반복문
@@ -44,7 +42,7 @@ public class UserSystem {
                 break;
             }
         }
-        while(true) { // 비밀번호 입력 반복문
+        while (true) { // 비밀번호 입력 반복문
             System.out.println("비밀번호를 입력해주세요");
             System.out.println("------------------------");
             System.out.println("비밀번호 형식 : \n1. 최소 영문 하나 이상 포함\n2. 특수 문자(!@#$%^&*?_~),숫자,영문(대소문자)만 가능\n3. 6글자 ~ 8글자");
@@ -53,13 +51,13 @@ public class UserSystem {
             this.userPwd = input.nextLine();
             pwd = userPwdPattern.matcher(this.userPwd); // 비밀번호 입력 받아서 확인
             if (!pwd.find()) { // 패턴에 맞지 않으면
-                     System.out.println("비밀번호 형식을 확인하고 재입력 해주세요"); // 재입력
-                 } else { // 아니면
-                     break;
-                 }
-             }
+                System.out.println("비밀번호 형식을 확인하고 재입력 해주세요"); // 재입력
+            } else { // 아니면
+                break;
+            }
+        }
 
-        while(true) { // 이름 입력 반복문
+        while (true) { // 이름 입력 반복문
             System.out.println("이름 입력");
             Matcher name;
             userName = input.nextLine();
@@ -77,7 +75,6 @@ public class UserSystem {
             }
         }
     }
-
 
 
     void showResult() {   // 입력받은 값을 보여주기
@@ -128,6 +125,7 @@ public class UserSystem {
                     }
                 }
             }
-        } return cnt+1;
+        }
+        return cnt + 1;
     }
 }
