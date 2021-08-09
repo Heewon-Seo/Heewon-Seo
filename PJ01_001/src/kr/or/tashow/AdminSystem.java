@@ -25,7 +25,7 @@ public class AdminSystem {
         adminMap.put("admin", "admin!");
     }
 
-    HashMap<String, Bike> addBike() { // try, catch 해야됨
+    HashMap<String, Bike> addBike() {
         System.out.println("등록하고자 하는 자전거의 종류를 입력하세요");
         System.out.println("1. 1인용 자전거 | 2. 2인용 자전거 | 0. 돌아가기");
         while (true) {
@@ -33,7 +33,8 @@ public class AdminSystem {
             try {
                 input = Integer.parseInt(scan.nextLine());
             } catch (NumberFormatException e) {
-                System.out.println(e.getMessage());
+                System.out.println("1인용은 1번, 2인용은 2번, 이전 메뉴로 돌아가시려면 0번을 입력해 주세요");
+                continue;
             }
             if (!(input == 1 || input == 2 | input == 0)) {
                 System.out.println("1인용 혹은 2인용만 등록 가능합니다");
@@ -42,15 +43,20 @@ public class AdminSystem {
                 System.out.println("이전메뉴으로 돌아갑니다"); // 추가
                 return null;
             } else {
-                System.out.println("등록할 자전거 대수를 입력하세요");
+                System.out.println("등록할 자전거 대수를 입력하세요 | 취소: 숫자 제외 아무키");
                 int amount = 0;
                 try {
                     amount = Integer.parseInt(scan.nextLine());
                 } catch (NumberFormatException e) {
-                    System.out.println("잘못된 값을 입력 하였습니다");
+                    System.out.println("자전거 등록이 취소되었습니다");
+                    System.out.println("이전 메뉴로 돌아갑니다");
+                    return null;
                 }
                 String bikeId;
-                if (input == 1) {
+                if (((bikeList.size()) + (amount)) > 100) {
+                    System.out.println("자전거는 최대 100대까지만 등록할 수 있습니다");
+                    System.out.println("현재 등록된 자전거: " + bikeList.size() + "대");
+                } else if (input == 1) {
                     for (int i = 0; i < amount; i++) {
                         bikeId = String.format("S-%04d", bikeList.size());
                         bikeList.put(bikeId, new Bike(BikeType.Single, 1000));
@@ -102,10 +108,10 @@ public class AdminSystem {
                     break;
                 }
             }
-        } else removeAllBikes();
+        } else removeById();
     }
 
-    void removeAllBikes() {
+    void removeById() {
         while (true) {
             String id = null;
             try {
@@ -114,10 +120,14 @@ public class AdminSystem {
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-            if (!bikeList.containsKey(id)) {
-                System.out.println("일치하는 자전거가 없습니다");
+            if (id.equals("0")){
+                System.out.println("삭제가 취소되었습니다.");
+                break;
+            }
+            else if (!bikeList.containsKey(id)) {
+                System.out.println("일치하는 자전거가 없습니다 | 0. 취소");
             } else if (bikeList.get(id).getRentalStatus().equals(RentalStatus.UNAVAILABLE)) {
-                System.out.println("해당 자전거는 대여중 입니다");
+                System.out.println("해당 자전거는 대여중 입니다 | 0. 취소");
             } else {
                 bikeList.remove(id);
                 System.out.println(id + " 자전거가 삭제되었습니다");
@@ -127,35 +137,29 @@ public class AdminSystem {
         }
     }
 
-    void adminLogin() {
-        Scanner sc = new Scanner(System.in);
+    boolean adminLogin() {
+        String id;
+        String pwd;
         while (true) {
-            String id = null;
-            String pwd = null;
-            try {
-                System.out.println("관리자 ID | 0. 초기화면");
-                id = sc.nextLine().trim().toLowerCase();
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
+            System.out.println("관리자 ID | 0. 초기화면");
+            id = scan.nextLine().trim().toLowerCase();
             if (id.equals("0")) {
                 System.out.println("초기화면으로 돌아갑니다"); // 돌아가기 추가
-                break;
-            }  else if (!adminMap.containsKey(id)) {
+                return false;
+            } else if (!adminMap.containsKey(id)) {
                 System.out.println("ID가 맞지 않습니다. 재입력 해주세요");
-            }else {
-                System.out.println("관리자 비밀번호를 입력해주세요 | 0. 초기화면");
-                pwd = sc.nextLine().trim();
-                if (pwd.equals("0")) {
-                    System.out.println("초기화면으로 돌아갑니다");
-                    break;
-                } else if (adminMap.get(id).equals(pwd)) {
-                    System.out.println("관리자 인증이 완료되었습니다!");
-                    break;
-                } else {
-                    System.out.println("비밀번호가 맞지 않습니다. 재입력 해주세요");
-                }
-            }
+            } else break;
         }
-    }
+            System.out.println("관리자 비밀번호를 입력해주세요 | 0. 초기화면");
+            pwd = scan.nextLine().trim();
+            if (pwd.equals("0")) {
+                System.out.println("초기화면으로 돌아갑니다");
+            } else if (adminMap.get(id).equals(pwd)) {
+                System.out.println("관리자 인증이 완료되었습니다!");
+                return true;
+            } else {
+                System.out.println("비밀번호가 맞지 않습니다. 재입력 해주세요");
+                adminLogin();
+            } return false;
+        }
 }

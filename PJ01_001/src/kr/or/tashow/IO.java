@@ -137,7 +137,7 @@ public class IO {
             for (Map.Entry<String, User> entrySet : UserSystem.userList.entrySet()) {
                 System.out.println(entrySet.getValue());
             }
-
+            if(UserSystem.userList.size() == 0) System.out.println("가입된 회원이 없습니다."); // 추가
             System.out.println("===============================================================");
 
         } catch (Exception e) {

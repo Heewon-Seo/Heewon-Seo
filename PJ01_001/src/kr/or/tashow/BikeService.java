@@ -67,10 +67,28 @@ public class BikeService implements Serializable {
         }
     }
 
+    boolean hasBikes () {
+        String bikeId = null;
+        for (int i = 0 ; i < rentList.size() ; i++) {
+            if (rentList.get(i).getUserPhoneNum().equals(Menu.cur_user_id)) { // 대여 내역에서 사용자가 대여한 내역 찾음
+                bikeId = rentList.get(i).getId(); // 그 자전거 ID를 저장
+            }
+        }
+        for (Map.Entry<String, Bike> entrySet : bikeList.entrySet()) { // 자전거 리스트 검색
+            if (bikeId.equals(entrySet.getKey()) && entrySet.getValue().getRentalStatus().equals(RentalStatus.UNAVAILABLE)) {
+                return true;
+            }
+        } return false;
+    }
+
     void returnBike() { // 반납
         String id = null;
+        if (!hasBikes()) { //RentList에 대여한 목록에 없다면
+            System.out.println("대여 중인 자전거가 없습니다");
+            return;
+        }
+        System.out.println("반납할 자전거의 일련번호를 입력해주세요 (예: S-1234) | 0. 이전화면");
         try {
-            System.out.println("반납할 자전거의 일련번호를 입력해주세요 (예: S-1234) | 0. 이전화면");
             id = scan.nextLine();
         } catch (Exception e) {
             System.out.println(e.getMessage());

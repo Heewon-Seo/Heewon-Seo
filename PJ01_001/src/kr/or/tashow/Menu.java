@@ -53,17 +53,18 @@ public class Menu {
 
             switch (menu) {
                 case 1:
-                    userSystem.singUp();
+                    userSystem.signUp();
                     break;
                 case 2:
-                    int a = userSystem.userLogin();
-                    if (!(a == 1)) {
+                    int isSuccess = userSystem.userLogin();
+                    if (!(isSuccess == 1)) {
                         displayUserMenu();
                     }
                     break;
                 case 3:
-                    adminSystem.adminLogin();
-                    displayAdminMenu();
+                    if((adminSystem.adminLogin())) {
+                        displayAdminMenu();
+                    }
                     break;
                 case 4:
                     System.out.println("이용해주셔서 감사합니다!");
