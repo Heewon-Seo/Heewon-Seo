@@ -28,12 +28,15 @@ public class UserSystem {
 
     void singUp() {
         while (true) { // 휴대폰 번호 입력 반복문
-            System.out.println("휴대폰 번호(ID) 입력");
+            System.out.println("휴대폰 번호(ID) 입력 | 0. 초기화면");
             Matcher phone;
             this.userPhoneNum = input.nextLine().trim(); // 휴대폰번호를 받아서 공백 제거
             phone = userPhonNumPattern.matcher(this.userPhoneNum); // 패턴에 맞는지 확인
 
-            if (!phone.find()) { // 형식에 맞지 않으면
+            if (this.userPhoneNum.equals("0")){
+                System.out.println("초기화면으로 돌아갑니다");
+                break;
+            } else if (!phone.find()) { // 형식에 맞지 않으면
                 System.out.println("아래 형식에 맞게 입력해 주세요"); // 재입력 문구 출력
                 System.out.println("ex) 010-1234-5678");
             } else if (userList.containsKey(userPhoneNum)) { // userList의 key에 이미 같은 번호가 있으면
@@ -41,6 +44,7 @@ public class UserSystem {
             } else { // 둘 다 아니면
                 break;
             }
+            break;
         }
         while (true) { // 비밀번호 입력 반복문
             System.out.println("비밀번호를 입력해주세요");
@@ -89,10 +93,15 @@ public class UserSystem {
         int cnt = 0;
 
         while (cnt == 0) {
-            System.out.println("ID를 입력해주세요");
+            System.out.println("ID를 입력해주세요 | 0. 초기화면");
+            System.out.println("ID는 휴대폰 번호입니다. (010-0000-0000)");
             userPhoneNum = input.nextLine().trim();
             Matcher phone = userPhonNumPattern.matcher(userPhoneNum);
-            if (!phone.find()) {
+            if (userPhoneNum.equals("0")){
+                System.out.println("초기화면으로 돌아갑니다");
+                break;
+            }
+            else if (!phone.find()) {
                 System.out.println("휴대폰 번호 양식에 맞춰서 다시 입력해주세요");
                 System.out.println("ex) 010-1234-5678");
                 continue;

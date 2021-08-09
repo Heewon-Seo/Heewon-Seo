@@ -70,7 +70,7 @@ public class BikeService implements Serializable {
     void returnBike() { // 반납
         String id = null;
         try {
-            System.out.println("반납할 자전거의 일련번호를 입력해주세요");
+            System.out.println("반납할 자전거의 일련번호를 입력해주세요 (예: S-1234) | 0. 이전화면");
             id = scan.nextLine();
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -90,6 +90,9 @@ public class BikeService implements Serializable {
                         break;
                     }
                 }
+                break;
+            } else if (id.equals("0")) {
+                System.out.println("이전화면으로 돌아갑니다");
                 break;
             } else {
                 System.out.println("일련번호가 일치하지 않습니다.");

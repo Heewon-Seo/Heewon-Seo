@@ -198,6 +198,10 @@ public class IO {
                 System.out.println("[" + entrySet.getKey() + "]" + entrySet.getValue());
             }
 
+            if(bikeList.size() == 0) { // 양수진 - 수정
+                System.out.println("등록된 자전거가 없습니다.");
+            }
+
             System.out.println("========================================");
 
         } catch (Exception e) {
