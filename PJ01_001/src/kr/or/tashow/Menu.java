@@ -62,7 +62,7 @@ public class Menu {
                     }
                     break;
                 case 3:
-                    if((adminSystem.adminLogin())) {
+                    if ((adminSystem.adminLogin())) {
                         displayAdminMenu();
                     }
                     break;

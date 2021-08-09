@@ -3,7 +3,8 @@ package kr.or.tashow;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.Iterator;
+import java.util.TreeMap;
 
 import static kr.or.tashow.BikeService.bikeList;
 import static kr.or.tashow.BikeService.rentList;
@@ -49,7 +50,7 @@ public class IO {
                 ois.close();
                 bis.close();
                 fis.close();
-            } catch (IOException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -131,13 +132,20 @@ public class IO {
             ois = new ObjectInputStream(bis);
 
             UserSystem.userList = (HashMap<String, User>) ois.readObject();
+            TreeMap<String, User> userListSort = new TreeMap<>(UserSystem.userList);
+            Iterator<String> keyiterator = userListSort.keySet().iterator();
 
             System.out.println("=====================비트를 타쇼 회원 리스트=====================");
 
-            for (Map.Entry<String, User> entrySet : UserSystem.userList.entrySet()) {
-                System.out.println(entrySet.getValue());
+            String userListKey;
+            User userListValue;
+
+            while (keyiterator.hasNext()) {
+                userListKey = keyiterator.next();
+                userListValue = userListSort.get(userListKey);
+                System.out.println(userListValue);
             }
-            if(UserSystem.userList.size() == 0) System.out.println("가입된 회원이 없습니다."); // 추가
+            if (UserSystem.userList.size() == 0) System.out.println("가입된 회원이 없습니다."); // 추가
             System.out.println("===============================================================");
 
         } catch (Exception e) {
@@ -191,14 +199,21 @@ public class IO {
             ois = new ObjectInputStream(bis);
 
             bikeList = (HashMap<String, Bike>) ois.readObject();
+            TreeMap<String, Bike> bikeListSort = new TreeMap<>(bikeList);
+            Iterator<String> keyiterator = bikeListSort.keySet().iterator();
 
             System.out.println("====== 비트를 타쇼 자전거 등록 리스트 ======");
 
-            for (Map.Entry<String, Bike> entrySet : bikeList.entrySet()) {
-                System.out.println("[" + entrySet.getKey() + "]" + entrySet.getValue());
+            String bikeListKey;
+            Bike bikeListValue;
+
+            while (keyiterator.hasNext()) {
+                bikeListKey = keyiterator.next();
+                bikeListValue = bikeListSort.get(bikeListKey);
+                System.out.println("[" + bikeListKey + "]" + bikeListValue);
             }
 
-            if(bikeList.size() == 0) { // 양수진 - 수정
+            if (bikeList.size() == 0) { // 양수진 - 수정
                 System.out.println("등록된 자전거가 없습니다.");
             }
 

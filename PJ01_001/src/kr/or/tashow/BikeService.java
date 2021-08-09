@@ -67,54 +67,57 @@ public class BikeService implements Serializable {
         }
     }
 
-    boolean hasBikes () {
-        String bikeId = null;
-        for (int i = 0 ; i < rentList.size() ; i++) {
-            if (rentList.get(i).getUserPhoneNum().equals(Menu.cur_user_id)) { // 대여 내역에서 사용자가 대여한 내역 찾음
-                bikeId = rentList.get(i).getId(); // 그 자전거 ID를 저장
+    ArrayList<String> hasBikes() { // 현재 대여중인 자전거가 있는지 확인
+        io.loadRentList();
+        System.out.println("====== 대여 중인 자전거 목록 ======");
+        String bikeId;
+        ArrayList<String> bikes = new ArrayList<>();
+        for (RentList list : rentList) {
+            if (list.getUserPhoneNum().equals(Menu.cur_user_id)) { // 대여 내역에서 사용자가 대여한 내역 찾음
+                bikeId = list.getId(); // 그 자전거 ID를 저장
+                for (Map.Entry<String, Bike> entrySet : bikeList.entrySet()) { // 자전거 리스트 검색
+                    if (bikeId.contains(entrySet.getKey()) && entrySet.getValue().getRentalStatus().equals(RentalStatus.UNAVAILABLE)) {
+                        bikes.add(entrySet.getKey());
+                        System.out.println(entrySet.getKey());
+                    }
+                }
             }
         }
-        for (Map.Entry<String, Bike> entrySet : bikeList.entrySet()) { // 자전거 리스트 검색
-            if (bikeId.equals(entrySet.getKey()) && entrySet.getValue().getRentalStatus().equals(RentalStatus.UNAVAILABLE)) {
-                return true;
-            }
-        } return false;
+        return bikes;
     }
 
     void returnBike() { // 반납
-        String id = null;
-        if (!hasBikes()) { //RentList에 대여한 목록에 없다면
+        String id;
+        if (hasBikes().isEmpty()) { //RentList에 대여한 목록에 없다면
             System.out.println("대여 중인 자전거가 없습니다");
             return;
         }
-        System.out.println("반납할 자전거의 일련번호를 입력해주세요 (예: S-1234) | 0. 이전화면");
-        try {
-            id = scan.nextLine();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        for (String key : bikeList.keySet()) { // bikeList
-            io.loadRentList();
-            if (bikeList.containsKey(id) && bikeList.get(id).getRentalStatus().equals(RentalStatus.UNAVAILABLE)) {
-                for (int i = 0; i < rentList.size(); i++) {
-                    if (rentList.get(i).getId().contains(id)) {
-                        RentList list = rentList.get(i);
-                        // time.inputEndTime(i); > 진짜 시간
-                        time.testEndTime(i); // > 테스트용 시간
-                        int fee = calculateFee(id, list.getStartTime(), list.getEndTime()); // 시간입력
-                        payFee(i, fee, id); // 계산
-                        io.writeBikeList();
-                        io.writeRentList();
-                        break;
+        while (true) {
+            System.out.println("반납할 자전거의 일련번호를 입력해주세요 (예: S-1234) | 0. 이전화면");
+            try {
+                id = scan.nextLine();
+                Bike bikeId = bikeList.get(id);
+                if (id.equals("0")) {
+                    System.out.println("이전화면으로 돌아갑니다");
+                    return;
+                } else if (bikeId.getRentalStatus().equals(RentalStatus.UNAVAILABLE)) {
+                    for (int i = 0; i < rentList.size(); i++) {
+                        if (rentList.get(i).getId().contains(id)) {
+                            RentList list = rentList.get(i);
+                            // time.inputEndTime(i); > 진짜 시간
+                            time.testEndTime(i); // > 테스트용 시간
+                            int fee = calculateFee(id, list.getStartTime(), list.getEndTime()); // 시간입력
+                            payFee(i, fee, id); // 계산
+                            io.writeBikeList();
+                            io.writeRentList();
+                            break;
+                        }
                     }
+                } else {
+                    System.out.println("일련번호가 일치하지 않습니다.");
                 }
-                break;
-            } else if (id.equals("0")) {
-                System.out.println("이전화면으로 돌아갑니다");
-                break;
-            } else {
-                System.out.println("일련번호가 일치하지 않습니다.");
-                break;
+            } catch (Exception e) {
+                System.out.println("알맞은 값을 입력해 주세요");
             }
         }
     }
@@ -147,7 +150,6 @@ public class BikeService implements Serializable {
             rentList.get(index).setEndTime(defaultTime);
             io.writeRentList();
             System.out.println("결제가 취소되었습니다");
-            System.out.println("이전화면으로 돌아갑니다");
         }
     }
 
