@@ -184,9 +184,9 @@ public class IO {
         ObjectInputStream ois =null;
 
         try{
-            fis =new FileInputStream(file);
-            bis =new BufferedInputStream(fis);
-            ois =new ObjectInputStream(bis);
+            fis = new FileInputStream(file);
+            bis = new BufferedInputStream(fis);
+            ois = new ObjectInputStream(bis);
 
             bikeList = (HashMap<String, Bike>) ois.readObject();
 
@@ -293,26 +293,29 @@ public class IO {
         }
     }
 
-    void deleteBikeList() {
-        // 파일의 경로 + 파일명
-        File file = new File(fileRoot+"bikelist.txt");
-        FileInputStream fis = null;
-        BufferedInputStream bis = null;
-        ObjectInputStream ois = null;
+    void loadBikeList () {
+        File file =new File(fileRoot+"bikelist.txt");
+        FileInputStream fis =null;
+        BufferedInputStream bis =null;
+        ObjectInputStream ois =null;
 
-        File deleteFile = new File(fileRoot+"bikelist.txt");
+        try{
+            fis = new FileInputStream(file);
+            bis = new BufferedInputStream(fis);
+            ois = new ObjectInputStream(bis);
 
-        // 파일이 존재하는지 체크 존재할경우 true, 존재하지않을경우 false
-        if(deleteFile.exists()) {
+            bikeList = (HashMap<String, Bike>) ois.readObject();
 
-            // 파일을 삭제합니다.
-            deleteFile.delete();
-
-            System.out.println("자전거 리스트를 삭제하였습니다.");
-
-        } else {
-            System.out.println("파일이 존재하지 않습니다.");
+        }catch(Exception e) {
+            System.out.println(e.getMessage());
+        }finally{
+            try{
+                ois.close();
+                bis.close();
+                fis.close();
+            }catch(IOException e) {
+                e.printStackTrace();
+            }
         }
-        writeBikeList();
     }
 }

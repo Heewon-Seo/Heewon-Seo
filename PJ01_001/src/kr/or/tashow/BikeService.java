@@ -4,10 +4,7 @@ import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 public class BikeService implements Serializable {
     static HashMap<String,Bike> bikeList = new HashMap<>();
@@ -15,18 +12,26 @@ public class BikeService implements Serializable {
     Time time;
     IO io;
     User user;
+    Scanner scan;
     int index;
+    int availableSingleBikes;
+    int availableTwinBikes;
 
     public BikeService() {
         time = new Time();
         io = new IO();
         user = new User();
+        scan = new Scanner(System.in);
         index = 0;
+        availableSingleBikes = 0;
+        availableTwinBikes = 0;
     }
 
     void rentalBike(String type) { // 대여
         DateFormat df = new SimpleDateFormat("HH:mm");
-        if (bikeList.isEmpty()) {
+        checkAvailable();
+        if (bikeList.isEmpty() || (type.equals("S") && availableSingleBikes==0)
+                || (type.equals("T") && availableTwinBikes==0)) {
             System.out.println("대여 가능한 자전거가 없습니다");
         } else {
             for (String key : bikeList.keySet()) {
@@ -36,7 +41,7 @@ public class BikeService implements Serializable {
                     System.out.println("====================================================");
                     System.out.println("            고객님의 자전거 번호: " + key);
                     System.out.println("            대여 시작 시각: " + df.format(time.setStartTime().getTime()));
-                    System.out.println("반납 시에 자전거 번호를 입력하셔야 하니, 잘 기억해 주세요!");
+                    System.out.println(" ** 반납 시에 자전거 번호를 입력하셔야 하니, 잘 기억해 주세요! **");
                     System.out.println("====================================================");
                     rentList.add(new RentList(key,time.setStartTime(),time.setDefaultEndTime(),Menu.cur_user_id));
                     // 기본 종료 시각을 강제로 부여 (0시0분)
@@ -48,7 +53,28 @@ public class BikeService implements Serializable {
         }
     }
 
-    void returnBike(String id) { // 반납
+    void checkAvailable () { // 대여 가능한 자전거 대수 계산
+        availableSingleBikes = 0;
+        availableTwinBikes = 0;
+        for (Map.Entry<String,Bike> entrySet : bikeList.entrySet()) {
+            BikeType type = entrySet.getValue().getType();
+            RentalStatus status = entrySet.getValue().getRentalStatus();
+            if (type.equals(BikeType.Single) && status.equals(RentalStatus.AVAILABLE)) {
+                availableSingleBikes++;
+            } else if (type.equals(BikeType.Twin) && status.equals(RentalStatus.AVAILABLE)) {
+                availableTwinBikes++;
+            }
+        }
+    }
+
+    void returnBike() { // 반납
+        String id = null;
+        try {
+            System.out.println("반납할 자전거의 일련번호를 입력해주세요");
+            id = scan.nextLine();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
         for(String key : bikeList.keySet()) { // bikeList
             io.loadRentList();
             if (bikeList.containsKey(id) && bikeList.get(id).getRentalStatus().equals(RentalStatus.UNAVAILABLE)) {
@@ -72,15 +98,19 @@ public class BikeService implements Serializable {
         }
     }
 
-    void payFee(int index, int fee, String id) {
+    void payFee(int index, int fee, String id) { // try catch
         DecimalFormat df = new DecimalFormat("#,###");
         System.out.println("결제요금: " + df.format(fee) + "원");
         System.out.println("[요금안내] 1시간 당 1인용 : 1,000원, 2인용 : 2,000원");
         System.out.println("* 요금은 시간 단위로 계산되어 1분 초과 시부터 올림 적용됩니다");
         System.out.println("결제하시겠습니까?");
         System.out.println("1. 예 | 2. 아니오 (취소)");
-        Scanner scan = new Scanner(System.in);
-        int input = Integer.parseInt(scan.nextLine());
+        int input = 0;
+        try {
+            input = Integer.parseInt(scan.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println(e.getMessage());
+        }
         if (input == 1) {
             rentList.get(index).setFee(fee);
             bikeList.get(id).setRentalStatus(RentalStatus.AVAILABLE); // 반납처리
@@ -122,4 +152,18 @@ public class BikeService implements Serializable {
         System.out.println("=========== 현재 기준 총 매출액 ============");
         System.out.println(df.format(totalSales) + "원\n");
     }
+
+    /*
+    void showMyBikes() {
+        io.loadRentList();
+        io.loadBikeList();
+        System.out.println("=========현재 대여 중인 자전거=========");
+        System.out.println("회원ID: " + Menu.cur_user_id);
+        for(RentList list : rentList) {
+            if(list.getUserPhoneNum().equals(Menu.cur_user_id) && bikeList.get(list.getId()).getRentalStatus().equals(RentalStatus.UNAVAILABLE)) {
+                System.out.println("자전거ID: " + list.getId() + " | 대여시각: " + list.getStartTime().get(Calendar.HOUR_OF_DAY)+"시 "+ list.getStartTime().get(Calendar.MINUTE)+"분");
+            }
+        }
+    }
+     */
 }

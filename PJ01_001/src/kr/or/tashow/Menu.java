@@ -3,7 +3,7 @@ package kr.or.tashow;
 import java.util.Scanner;
 
 public class Menu {
-    static String cur_user_id = "";
+    static String cur_user_id;
     Scanner input;
     User user;
     Admin admin;
@@ -13,6 +13,7 @@ public class Menu {
     AdminSystem adminSystem;
 
     public Menu() {
+        cur_user_id = "";
         input = new Scanner(System.in);
         user = new User();
         admin = new Admin();
@@ -55,8 +56,10 @@ public class Menu {
                     userSystem.singUp();
                     break;
                 case 2:
-                    userSystem.userLogin();
-                    displayUserMenu();
+                    int a = userSystem.userLogin();
+                    if(!(a == 1)) {
+                        displayUserMenu();
+                    }
                     break;
                 case 3:
                     adminSystem.adminLogin();
@@ -129,7 +132,7 @@ public class Menu {
             do {
                 try {
                     menu = Integer.parseInt(input.nextLine());
-                    if (menu >= 1 && menu <= 4) {
+                    if (menu >= 1 && menu <= 5) {
                         break;
                     } else {
                         throw new Exception("메뉴 번호 오류");
@@ -148,9 +151,7 @@ public class Menu {
                         bikeService.rentalBike("T");
                         break;
                     case 3:
-                        System.out.println("반납할 자전거의 일련번호를 입력해주세요");
-                        String id = input.nextLine();
-                        bikeService.returnBike(id);
+                        bikeService.returnBike();
                         break;
                     case 4:
                         return;
@@ -174,7 +175,7 @@ public class Menu {
             do {
                 try {
                     menu = Integer.parseInt(input.nextLine());
-                    if (menu >= 1 && menu <= 5) {
+                    if (menu >= 1 && menu <= 6) {
                         break;
                     } else {
                         throw new Exception("메뉴 번호 오류");
@@ -203,5 +204,4 @@ public class Menu {
             }
         }
     }
-
 }
