@@ -14,7 +14,7 @@ public class FileIO {
 
 
     public FileIO() {
-        fileRoot = "/Users/heewonseo/Documents/1stProject/lists/";
+        fileRoot = "C:\\intelli_workspace\\UserData\\ll";
     }
 
     void startSystem() {
@@ -145,7 +145,9 @@ public class FileIO {
                 userListValue = userListSort.get(userListKey);
                 System.out.println(userListValue);
             }
-            if (UserSystem.userList.size() == 0) System.out.println("가입된 회원이 없습니다."); // 추가
+            if (UserSystem.userList.size() == 0) {
+                System.out.println("가입된 회원이 없습니다"); // 추가
+            }
             System.out.println("===============================================================");
 
         } catch (Exception e) {
@@ -213,7 +215,7 @@ public class FileIO {
                 System.out.println("[" + bikeListKey + "]" + bikeListValue);
             }
 
-            if (bikeList.size() == 0) { // 양수진 - 수정
+            if (bikeList.size() == 0) {
                 System.out.println("등록된 자전거가 없습니다.");
             }
 

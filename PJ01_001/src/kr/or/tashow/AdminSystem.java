@@ -8,11 +8,10 @@ import static kr.or.tashow.BikeService.bikeList;
 
 public class AdminSystem {
     Bike bike;
-    String id;
-    String pw;
     BikeService bikeService;
     FileIO fileIo;
     Scanner scan;
+    Admin admin;
     HashMap<String, String> adminMap = new HashMap<>();
 
     public AdminSystem() {
@@ -20,9 +19,8 @@ public class AdminSystem {
         bikeService = new BikeService();
         fileIo = new FileIO();
         scan = new Scanner(System.in);
-        this.id = "";
-        this.pw = "";
-        adminMap.put("admin", "admin!");
+        admin = new Admin();
+        adminMap.put(admin.getId(),admin.getPw());
     }
 
     void addBike() {
@@ -36,7 +34,7 @@ public class AdminSystem {
                 System.out.println("1인용은 1번, 2인용은 2번, 이전 메뉴로 돌아가시려면 0번을 입력해 주세요");
                 continue;
             }
-            if (!(input == 1 || input == 2 | input == 0)) {
+            if (!(input == 1 || input == 2 || input == 0)) {
                 System.out.println("1인용 혹은 2인용만 등록 가능합니다");
                 System.out.println("1인용은 1번, 2인용은 2번, 이전 메뉴로 돌아가시려면 0번을 입력해 주세요");
             } else if (input == 0) {
@@ -88,12 +86,12 @@ public class AdminSystem {
         } catch (NumberFormatException e) {
             System.out.println("숫자만 입력 가능합니다");
         }
-        if (!(menu == 1 || menu == 2 | menu == 0)) {
+        if (!(menu == 1 || menu == 2 || menu == 0)) {
             System.out.println("잘못 입력하셨습니다");
         } else if (menu == 0) {
             System.out.println("이전메뉴로 돌아갑니다"); // 추가
         } else if (bikeList.isEmpty()) {
-            System.out.println("등록된 자전거가 없습니다."); // 수정
+            System.out.println("등록된 자전거가 없습니다"); // 수정
         } else if (menu == 2) {
             for (Map.Entry<String, Bike> entrySet : bikeList.entrySet()) {
                 if (entrySet.getValue().getRentalStatus().equals(RentalStatus.UNAVAILABLE)) {
@@ -136,25 +134,23 @@ public class AdminSystem {
     }
 
     boolean adminLogin() {
-        String id;
-        String pwd;
         while (true) {
             System.out.println("관리자 ID | 0. 초기화면");
-            id = scan.nextLine().trim().toLowerCase();
-            if (id.equals("0")) {
+            admin.setId(scan.nextLine().trim().toLowerCase());
+            if (admin.getId().equals("0")) {
                 System.out.println("초기화면으로 돌아갑니다"); // 돌아가기 추가
                 return false;
-            } else if (!adminMap.containsKey(id)) {
+            } else if (!adminMap.containsKey(admin.getId())) {
                 System.out.println("ID가 맞지 않습니다. 재입력 해주세요");
                 continue;
             } else {
                 System.out.println("관리자 비밀번호를 입력해주세요 | 0. 초기화면");
-                pwd = scan.nextLine().trim();
+                admin.setPw(scan.nextLine().trim().toLowerCase());
             }
-            if (pwd.equals("0")) {
+            if (admin.getPw().equals("0")) {
                 System.out.println("초기화면으로 돌아갑니다");
                 return false;
-            } else if (adminMap.get(id).equals(pwd)) {
+            } else if (adminMap.get(admin.getId()).equals(admin.getPw())) {
                 System.out.println("관리자 인증이 완료되었습니다!");
                 return true;
             } else {

@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 public class UserSystem {
 
     static HashMap<String, User> userList = new HashMap<>();
-    private final Pattern userPhonNumPattern;
+    private final Pattern userPhoneNumPattern;
     private final Pattern userNamePattern;
     private final Pattern userPwdPattern;
     User user;
@@ -25,7 +25,7 @@ public class UserSystem {
         userPhoneNum = "";
         userPwd = "";
         userName = "";
-        userPhonNumPattern = Pattern.compile("^01(0|1|6|7|8|9)-\\d{3,4}-\\d{4}$"); // 핸드폰 번호 형식
+        userPhoneNumPattern = Pattern.compile("^01(0|1|6|7|8|9)-\\d{3,4}-\\d{4}$"); // 핸드폰 번호 형식
         userNamePattern = Pattern.compile("^[가-힣]*$"); // 이름 형식 (한글만)
         userPwdPattern = Pattern.compile("^(?=.*[A-Za-z])[A-Za-z!@#$%^&?_~\\d]{6,8}$"); // 비밀번호 형식
     }
@@ -34,7 +34,7 @@ public class UserSystem {
         System.out.println("휴대폰 번호(ID) 입력 | 0. 초기화면");
         Matcher phone;
         this.userPhoneNum = input.nextLine().trim(); // 휴대폰번호를 받아서 공백 제거
-        phone = userPhonNumPattern.matcher(this.userPhoneNum); // 패턴에 맞는지 확인
+        phone = userPhoneNumPattern.matcher(this.userPhoneNum); // 패턴에 맞는지 확인
         if (this.userPhoneNum.equals("0")) {
             System.out.println("초기화면으로 돌아갑니다");
         } else if (!phone.find()) { // 형식에 맞지 않으면
@@ -52,7 +52,7 @@ public class UserSystem {
     void signUpPwd() {// 비밀번호 입력 반복문
         System.out.println("비밀번호를 입력해주세요 | 0. 초기화면");
         System.out.println("------------------------");
-        System.out.println("비밀번호 형식 : \n1. 최소 영문 하나 이상 포함\n2. 특수 문자(!@#$%^&*?_~),숫자,영문(대소문자)만 가능\n3. 6글자 ~ 8글자");
+        System.out.println("비밀번호 형식: \n1. 최소 영문 하나 이상 포함\n2. 특수 문자(!@#$%^&*?_~),숫자,영문(대소문자)만 가능\n3. 6글자 ~ 8글자");
         System.out.println("------------------------");
         Matcher pwd;
         this.userPwd = input.nextLine().trim();
@@ -90,7 +90,7 @@ public class UserSystem {
     void showResult() {   // 입력받은 값을 보여주기
         System.out.println("회원가입이 완료되었습니다");
         System.out.println("*****************************************************************");
-        System.out.println("\t이름 : " + userName + ", \tID : " + userPhoneNum + ",\t 비밀번호 : " + userPwd);
+        System.out.println("\t이름: " + userName + ", \tID: " + userPhoneNum + ",\t 비밀번호: " + userPwd);
         System.out.println("*****************************************************************");
         System.out.println();
     }
@@ -100,9 +100,9 @@ public class UserSystem {
 
         while (cnt == 0) {
             System.out.println("ID를 입력해주세요 | 0. 초기화면");
-            System.out.println("ID는 휴대폰 번호입니다. (010-0000-0000)");
+            System.out.println("ID는 휴대폰 번호입니다 (010-0000-0000)");
             userPhoneNum = input.nextLine().trim();
-            Matcher phone = userPhonNumPattern.matcher(userPhoneNum);
+            Matcher phone = userPhoneNumPattern.matcher(userPhoneNum);
             if (userPhoneNum.equals("0")) {
                 System.out.println("초기화면으로 돌아갑니다");
                 break;

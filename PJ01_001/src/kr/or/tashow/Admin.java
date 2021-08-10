@@ -2,16 +2,11 @@ package kr.or.tashow;
 
 public class Admin {
     private String id;
-    private BikeType bikeType;
-    private int price;
+    private String pw;
 
     public Admin() {
-    }
-
-    public Admin(String id, BikeType bikeType, int price) {
-        this.id = id;
-        this.bikeType = bikeType;
-        this.price = price;
+        this.id = "admin";
+        this.pw = "admin!";
     }
 
     public String getId() {
@@ -22,19 +17,12 @@ public class Admin {
         this.id = id;
     }
 
-    public BikeType getBikeType() {
-        return bikeType;
+    public String getPw() {
+        return pw;
     }
 
-    public void setBikeType(BikeType bikeType) {
-        this.bikeType = bikeType;
+    public void setPw(String pw) {
+        this.pw = pw;
     }
 
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
 }

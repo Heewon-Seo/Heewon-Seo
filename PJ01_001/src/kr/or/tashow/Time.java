@@ -30,14 +30,6 @@ public class Time {
         rentList.get(index).setEndTime(endTime); // 파라미터로 받은 index 값 번째에 있는 RentList 객체의 endTime 필드에 입력
     }
 
-    void testEndTime(int index) { // setDefaultTime과 거의 동일
-        Calendar test = Calendar.getInstance();
-        test.set(Calendar.HOUR_OF_DAY, 22); // 테스트 할 시각 입력
-        test.set(Calendar.MINUTE, 54); // 테스트 할 분 입력
-        System.out.println("종료시각: " + dateFormat.format(test.getTime()));
-        rentList.get(index).setEndTime(test);
-    }
-
     int getTime(Calendar startTime, Calendar endTime) { // 대여시간 계산
         int diffHour = (int) (endTime.getTimeInMillis() - startTime.getTimeInMillis()) / 1000 / (60 * 60);
         // 1000분의 1초 > 나누기 1000 > 60분 * 60초로 나눔 > 시간 계산 완료

@@ -31,7 +31,8 @@ public class BikeService implements Serializable {
         if (bikeList.isEmpty() || (type.equals("S") && availableSingleBikes == 0)
                 || (type.equals("T") && availableTwinBikes == 0)) {
             System.out.println("대여 가능한 자전거가 없습니다");
-        } else {
+            return;
+        }
             for (String key : bikeList.keySet()) {
                 if (key.startsWith(type) && bikeList.get(key).getRentalStatus().equals(RentalStatus.AVAILABLE)) {
                     Bike bike = bikeList.get(key);
@@ -48,7 +49,6 @@ public class BikeService implements Serializable {
                     break;
                 }
             }
-        }
     }
 
     void checkAvailable() { // 대여 가능한 자전거 대수 계산
@@ -102,8 +102,7 @@ public class BikeService implements Serializable {
                     for (int i = 0; i < rentList.size(); i++) {
                         if (rentList.get(i).getId().contains(id)) {
                             RentList list = rentList.get(i);
-                            // time.inputEndTime(i); > 진짜 시간
-                            time.testEndTime(i); // > 테스트용 시간
+                            time.setEndTime(i);
                             int fee = calculateFee(id, list.getStartTime(), list.getEndTime()); // 시간입력
                             payFee(i, fee, id); // 계산
                             fileIo.writeBikeList();
@@ -123,8 +122,8 @@ public class BikeService implements Serializable {
     void payFee(int index, int fee, String id) { // try catch
         DecimalFormat df = new DecimalFormat("#,###");
         System.out.println("결제요금: " + df.format(fee) + "원");
-        System.out.println("[요금안내] 1시간 당 1인용 : 1,000원, 2인용 : 2,000원");
-        System.out.println("* 요금은 시간 단위로 계산되어 1분 초과 시부터 올림 적용됩니다");
+        System.out.println("[요금안내] 1시간 당 1인용: 1,000원, 2인용: 2,000원");
+        System.out.println("* 요금은 시간 단위로 계산되어 1분 이상은 올림 적용됩니다");
         System.out.println("결제하시겠습니까?");
         System.out.println("1. 예 | 2. 아니오 (취소)");
         int input = 0;
@@ -140,9 +139,7 @@ public class BikeService implements Serializable {
             fileIo.writeBikeList();
             System.out.println("결제가 완료되었습니다.");
             System.out.println("이용해 주셔서 감사합니다 :D");
-            return;
         } else if (input == 2) {
-            rentList.get(index).setFee(0);
             Calendar defaultTime = Calendar.getInstance(); // time.setDefaultTime 쓰면 오류나서 일단 이렇게 해뒀음
             defaultTime.set(Calendar.HOUR_OF_DAY, 0);
             defaultTime.set(Calendar.MINUTE, 0);
