@@ -1,7 +1,6 @@
 package kr.or.tashow;
 
 import java.io.Serializable;
-import java.util.Scanner;
 
 public class User implements Serializable {
     private String userPhoneNum;

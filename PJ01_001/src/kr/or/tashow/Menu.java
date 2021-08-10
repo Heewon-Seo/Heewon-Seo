@@ -118,44 +118,25 @@ public class Menu {
 
     private void displayUserMenu() { // 사용자 메뉴
         // 대여하기 (> 자전거 목록조회), 반납하기 (> 결제 및 반납), 프로그램 종료
+        int menu = ViewUtil.displayMenu("자전거 대여 시스템", new String[]{
+                "대여하기 (1인용)",
+                "대여하기 (2인용)",
+                "결제 및 반납하기",
+                "이전메뉴"
+        });
 
-        while (true) {
-            System.out.println();
-            System.out.println("**************비트를 타쇼 회원 메뉴**************");
-            System.out.println("        원하는 메뉴의 번호를 입력하세요");
-            System.out.println("            1. 대여 (1인용)");
-            System.out.println("            2. 대여 (2인용)");
-            System.out.println("            3. 결제 및 반납");
-            System.out.println("            4. 이전 메뉴");
-            System.out.println("*******************************************");
-            int menu;
-            do {
-                try {
-                    menu = Integer.parseInt(input.nextLine());
-                    if (menu >= 1 && menu <= 5) {
-                        break;
-                    } else {
-                        throw new Exception("메뉴 번호 오류");
-                    }
-                } catch (Exception e) {
-                    System.out.println("오류발생: " + e.getMessage());
-                    System.out.println("1~4 중 다시 입력해주세요");
-                }
-            } while (true);
-
-            switch (menu) {
-                case 1:
-                    bikeService.rentalBike("S");
-                    break;
-                case 2:
-                    bikeService.rentalBike("T");
-                    break;
-                case 3:
-                    bikeService.returnBike();
-                    break;
-                case 4:
-                    return;
-            }
+        switch (menu) {
+            case 1:
+                bikeService.rentalBike("S");
+                break;
+            case 2:
+                bikeService.rentalBike("T");
+                break;
+            case 3:
+                bikeService.returnBike();
+                break;
+            case 4:
+                return;
         }
     }
 

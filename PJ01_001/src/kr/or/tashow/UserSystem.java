@@ -8,15 +8,15 @@ import java.util.regex.Pattern;
 public class UserSystem {
 
     static HashMap<String, User> userList = new HashMap<>();
+    private final Pattern userPhonNumPattern;
+    private final Pattern userNamePattern;
+    private final Pattern userPwdPattern;
     User user;
     Scanner input;
     FileIO fileIo;
     String userPhoneNum;
     String userPwd;
     String userName;
-    private Pattern userPhonNumPattern = Pattern.compile("^01(0|1|6|7|8|9)-\\d{3,4}-\\d{4}$"); // 핸드폰 번호 형식
-    private Pattern userNamePattern = Pattern.compile("^[가-힣]*$"); // 이름 형식 (한글만)
-    private Pattern userPwdPattern = Pattern.compile("^(?=.*[A-Za-z])[A-Za-z!@#$%^&?_~\\d]{6,8}$"); // 비밀번호 형식
 
     public UserSystem() {
         user = new User();
@@ -25,6 +25,9 @@ public class UserSystem {
         userPhoneNum = "";
         userPwd = "";
         userName = "";
+        userPhonNumPattern = Pattern.compile("^01(0|1|6|7|8|9)-\\d{3,4}-\\d{4}$"); // 핸드폰 번호 형식
+        userNamePattern = Pattern.compile("^[가-힣]*$"); // 이름 형식 (한글만)
+        userPwdPattern = Pattern.compile("^(?=.*[A-Za-z])[A-Za-z!@#$%^&?_~\\d]{6,8}$"); // 비밀번호 형식
     }
 
     void signUp() { // 휴대폰 번호 입력 반복문
@@ -92,7 +95,7 @@ public class UserSystem {
         System.out.println();
     }
 
-    public int userLogin() {
+    int userLogin() {
         int cnt = 0;
 
         while (cnt == 0) {

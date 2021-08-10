@@ -13,7 +13,6 @@ public class BikeService implements Serializable {
     FileIO fileIo;
     User user;
     Scanner scan;
-    int index;
     int availableSingleBikes;
     int availableTwinBikes;
 
@@ -22,7 +21,6 @@ public class BikeService implements Serializable {
         fileIo = new FileIO();
         user = new User();
         scan = new Scanner(System.in);
-        index = 0;
         availableSingleBikes = 0;
         availableTwinBikes = 0;
     }

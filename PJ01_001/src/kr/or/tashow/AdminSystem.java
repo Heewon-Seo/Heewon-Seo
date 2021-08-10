@@ -25,7 +25,7 @@ public class AdminSystem {
         adminMap.put("admin", "admin!");
     }
 
-    HashMap<String, Bike> addBike() {
+    void addBike() {
         System.out.println("등록하고자 하는 자전거의 종류를 입력하세요");
         System.out.println("1. 1인용 자전거 | 2. 2인용 자전거 | 0. 돌아가기");
         while (true) {
@@ -41,7 +41,7 @@ public class AdminSystem {
                 System.out.println("1인용은 1번, 2인용은 2번, 이전 메뉴로 돌아가시려면 0번을 입력해 주세요");
             } else if (input == 0) {
                 System.out.println("이전메뉴으로 돌아갑니다"); // 추가
-                return null;
+                return;
             } else {
                 System.out.println("등록할 자전거 대수를 입력하세요 | 취소: 숫자 제외 아무키");
                 int amount;
@@ -50,7 +50,7 @@ public class AdminSystem {
                 } catch (NumberFormatException e) {
                     System.out.println("자전거 등록이 취소되었습니다");
                     System.out.println("이전 메뉴로 돌아갑니다");
-                    return null;
+                    return;
                 }
                 String bikeId;
                 if (((bikeList.size()) + (amount)) > 100) {
@@ -63,7 +63,7 @@ public class AdminSystem {
                         fileIo.writeBikeList();
                         System.out.println("[" + bikeId + "가 등록되었습니다]");
                     }
-                    return bikeList;
+                    return;
                 } else {
                     for (int i = 0; i < amount; i++) {
                         bikeId = String.format("T-%04d", bikeList.size());
@@ -71,7 +71,7 @@ public class AdminSystem {
                         fileIo.writeBikeList();
                         System.out.println("[" + bikeId + "가 등록되었습니다]");
                     }
-                    return bikeList;
+                    return;
                 }
             }
         }

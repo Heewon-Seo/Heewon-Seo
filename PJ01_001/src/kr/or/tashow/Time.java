@@ -6,20 +6,15 @@ import java.util.Calendar;
 import static kr.or.tashow.BikeService.rentList;
 
 public class Time {
-    private Calendar startTime;
+    private final SimpleDateFormat dateFormat;
     private Calendar endTime;
-    private Calendar test;
-    private SimpleDateFormat dateFormat;
-    private int diffHour;
-    private int diffMin;
 
     public Time() {
         dateFormat = new SimpleDateFormat("HH:mm");
     } // 출력할 시간 양식
 
     Calendar setStartTime() { // 대여 시작 시간 입력
-        startTime = Calendar.getInstance(); // 캘린더 인스턴스 받아와서
-        return startTime; // 리턴해줌
+        return Calendar.getInstance(); // 리턴해줌
     }
 
     Calendar setDefaultEndTime() { // 대여 시작 시간 입력 시, 디폴트로 들어가는 종료시간 초기값
@@ -36,7 +31,7 @@ public class Time {
     }
 
     void testEndTime(int index) { // setDefaultTime과 거의 동일
-        test = Calendar.getInstance();
+        Calendar test = Calendar.getInstance();
         test.set(Calendar.HOUR_OF_DAY, 22); // 테스트 할 시각 입력
         test.set(Calendar.MINUTE, 54); // 테스트 할 분 입력
         System.out.println("종료시각: " + dateFormat.format(test.getTime()));
@@ -44,9 +39,9 @@ public class Time {
     }
 
     int getTime(Calendar startTime, Calendar endTime) { // 대여시간 계산
-        diffHour = (int) (endTime.getTimeInMillis() - startTime.getTimeInMillis()) / 1000 / (60 * 60);
+        int diffHour = (int) (endTime.getTimeInMillis() - startTime.getTimeInMillis()) / 1000 / (60 * 60);
         // 1000분의 1초 > 나누기 1000 > 60분 * 60초로 나눔 > 시간 계산 완료
-        diffMin = (int) ((endTime.getTimeInMillis() - startTime.getTimeInMillis()) / 1000 / 60 - diffHour * 60);
+        int diffMin = (int) ((endTime.getTimeInMillis() - startTime.getTimeInMillis()) / 1000 / 60 - diffHour * 60);
         // 1000분의 1초 > 나누기 1000 > 60초로 나눔 > 시간*60초 빼기 > 분 계산 완료
         System.out.println("이용시간: " + diffHour + "시간 " + diffMin + "분"); // 출력해줌
         if (!(diffMin == 0)) { // 분 값이 0이 아니면
