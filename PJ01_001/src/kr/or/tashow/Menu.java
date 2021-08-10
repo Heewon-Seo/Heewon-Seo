@@ -7,7 +7,7 @@ public class Menu {
     Scanner input;
     User user;
     Admin admin;
-    IO io;
+    FileIO fileIo;
     BikeService bikeService;
     UserSystem userSystem;
     AdminSystem adminSystem;
@@ -17,11 +17,11 @@ public class Menu {
         input = new Scanner(System.in);
         user = new User();
         admin = new Admin();
-        io = new IO();
+        fileIo = new FileIO();
         bikeService = new BikeService();
         userSystem = new UserSystem();
         adminSystem = new AdminSystem();
-        io.startSystem();
+        fileIo.startSystem();
     }
 
     public void displayDefaultMenu() { // 첫 메뉴 번호입력
@@ -56,8 +56,7 @@ public class Menu {
                     userSystem.signUp();
                     break;
                 case 2:
-                    int isSuccess = userSystem.userLogin();
-                    if (!(isSuccess == 1)) {
+                    if (!(userSystem.userLogin() == 1)) {
                         displayUserMenu();
                     }
                     break;
@@ -106,7 +105,7 @@ public class Menu {
                     bikeService.calculateTotalSales();
                     break;
                 case 2:
-                    io.readUserList();
+                    fileIo.readUserList();
                     break;
                 case 3:
                     displayBikeMenu();
@@ -195,10 +194,10 @@ public class Menu {
                     adminSystem.removeBike();
                     break;
                 case 3:
-                    io.readBikeList();
+                    fileIo.readBikeList();
                     break;
                 case 4:
-                    io.readRentList();
+                    fileIo.readRentList();
                     break;
                 case 5:
                     return;

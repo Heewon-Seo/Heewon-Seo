@@ -10,7 +10,7 @@ public class BikeService implements Serializable {
     static HashMap<String, Bike> bikeList = new HashMap<>();
     static ArrayList<RentList> rentList = new ArrayList<>();
     Time time;
-    IO io;
+    FileIO fileIo;
     User user;
     Scanner scan;
     int index;
@@ -19,7 +19,7 @@ public class BikeService implements Serializable {
 
     public BikeService() {
         time = new Time();
-        io = new IO();
+        fileIo = new FileIO();
         user = new User();
         scan = new Scanner(System.in);
         index = 0;
@@ -45,8 +45,8 @@ public class BikeService implements Serializable {
                     System.out.println("====================================================");
                     rentList.add(new RentList(key, time.setStartTime(), time.setDefaultEndTime(), Menu.cur_user_id));
                     // 기본 종료 시각을 강제로 부여 (0시0분)
-                    io.writeBikeList();
-                    io.writeRentList();
+                    fileIo.writeBikeList();
+                    fileIo.writeRentList();
                     break;
                 }
             }
@@ -68,7 +68,7 @@ public class BikeService implements Serializable {
     }
 
     ArrayList<String> hasBikes() { // 현재 대여중인 자전거가 있는지 확인
-        io.loadRentList();
+        fileIo.loadRentList();
         System.out.println("====== 대여 중인 자전거 목록 ======");
         String bikeId;
         ArrayList<String> bikes = new ArrayList<>();
@@ -108,9 +108,9 @@ public class BikeService implements Serializable {
                             time.testEndTime(i); // > 테스트용 시간
                             int fee = calculateFee(id, list.getStartTime(), list.getEndTime()); // 시간입력
                             payFee(i, fee, id); // 계산
-                            io.writeBikeList();
-                            io.writeRentList();
-                            break;
+                            fileIo.writeBikeList();
+                            fileIo.writeRentList();
+                            return;
                         }
                     }
                 } else {
@@ -138,17 +138,18 @@ public class BikeService implements Serializable {
         if (input == 1) {
             rentList.get(index).setFee(fee);
             bikeList.get(id).setRentalStatus(RentalStatus.AVAILABLE); // 반납처리
-            io.writeRentList();
-            io.writeBikeList();
+            fileIo.writeRentList();
+            fileIo.writeBikeList();
             System.out.println("결제가 완료되었습니다.");
             System.out.println("이용해 주셔서 감사합니다 :D");
+            return;
         } else if (input == 2) {
             rentList.get(index).setFee(0);
             Calendar defaultTime = Calendar.getInstance(); // time.setDefaultTime 쓰면 오류나서 일단 이렇게 해뒀음
             defaultTime.set(Calendar.HOUR_OF_DAY, 0);
             defaultTime.set(Calendar.MINUTE, 0);
             rentList.get(index).setEndTime(defaultTime);
-            io.writeRentList();
+            fileIo.writeRentList();
             System.out.println("결제가 취소되었습니다");
         }
     }
@@ -165,7 +166,7 @@ public class BikeService implements Serializable {
 
     void calculateTotalSales() {
         DecimalFormat df = new DecimalFormat("#,###");
-        io.loadRentList();
+        fileIo.loadRentList();
         int fee;
         int totalSales = 0;
         for (RentList list : rentList) {
@@ -175,18 +176,4 @@ public class BikeService implements Serializable {
         System.out.println("=========== 현재 기준 총 매출액 ============");
         System.out.println(df.format(totalSales) + "원\n");
     }
-
-    /*
-    void showMyBikes() {
-        io.loadRentList();
-        io.loadBikeList();
-        System.out.println("=========현재 대여 중인 자전거=========");
-        System.out.println("회원ID: " + Menu.cur_user_id);
-        for(RentList list : rentList) {
-            if(list.getUserPhoneNum().equals(Menu.cur_user_id) && bikeList.get(list.getId()).getRentalStatus().equals(RentalStatus.UNAVAILABLE)) {
-                System.out.println("자전거ID: " + list.getId() + " | 대여시각: " + list.getStartTime().get(Calendar.HOUR_OF_DAY)+"시 "+ list.getStartTime().get(Calendar.MINUTE)+"분");
-            }
-        }
-    }
-     */
 }

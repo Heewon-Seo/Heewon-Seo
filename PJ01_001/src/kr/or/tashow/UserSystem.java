@@ -10,7 +10,7 @@ public class UserSystem {
     static HashMap<String, User> userList = new HashMap<>();
     User user;
     Scanner input;
-    IO io;
+    FileIO fileIo;
     String userPhoneNum;
     String userPwd;
     String userName;
@@ -21,7 +21,7 @@ public class UserSystem {
     public UserSystem() {
         user = new User();
         input = new Scanner(System.in);
-        io = new IO();
+        fileIo = new FileIO();
         userPhoneNum = "";
         userPwd = "";
         userName = "";
@@ -78,7 +78,7 @@ public class UserSystem {
             signUpName();
         } else {
             userList.put(userPhoneNum, new User(userPhoneNum, userName, userPwd));
-            io.writeUserList();
+            fileIo.writeUserList();
             showResult();
         }
     }

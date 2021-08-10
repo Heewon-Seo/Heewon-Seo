@@ -9,11 +9,11 @@ import java.util.TreeMap;
 import static kr.or.tashow.BikeService.bikeList;
 import static kr.or.tashow.BikeService.rentList;
 
-public class IO {
+public class FileIO {
     private String fileRoot;
 
 
-    public IO() {
+    public FileIO() {
         fileRoot = "/Users/heewonseo/Documents/1stProject/lists/";
     }
 

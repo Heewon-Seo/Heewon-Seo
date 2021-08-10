@@ -6,12 +6,12 @@ import java.util.Calendar;
 import static kr.or.tashow.BikeService.rentList;
 
 public class Time {
-    Calendar startTime;
-    Calendar endTime;
-    Calendar test;
-    SimpleDateFormat dateFormat;
-    int diffHour;
-    int diffMin;
+    private Calendar startTime;
+    private Calendar endTime;
+    private Calendar test;
+    private SimpleDateFormat dateFormat;
+    private int diffHour;
+    private int diffMin;
 
     public Time() {
         dateFormat = new SimpleDateFormat("HH:mm");

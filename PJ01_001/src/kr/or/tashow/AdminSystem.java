@@ -11,14 +11,14 @@ public class AdminSystem {
     String id;
     String pw;
     BikeService bikeService;
-    IO io;
+    FileIO fileIo;
     Scanner scan;
     HashMap<String, String> adminMap = new HashMap<>();
 
     public AdminSystem() {
         bike = new Bike();
         bikeService = new BikeService();
-        io = new IO();
+        fileIo = new FileIO();
         scan = new Scanner(System.in);
         this.id = "";
         this.pw = "";
@@ -60,7 +60,7 @@ public class AdminSystem {
                     for (int i = 0; i < amount; i++) {
                         bikeId = String.format("S-%04d", bikeList.size());
                         bikeList.put(bikeId, new Bike(BikeType.Single, 1000));
-                        io.writeBikeList();
+                        fileIo.writeBikeList();
                         System.out.println("[" + bikeId + "가 등록되었습니다]");
                     }
                     return bikeList;
@@ -68,7 +68,7 @@ public class AdminSystem {
                     for (int i = 0; i < amount; i++) {
                         bikeId = String.format("T-%04d", bikeList.size());
                         bikeList.put(bikeId, new Bike(BikeType.Twin, 2000));
-                        io.writeBikeList();
+                        fileIo.writeBikeList();
                         System.out.println("[" + bikeId + "가 등록되었습니다]");
                     }
                     return bikeList;
@@ -78,7 +78,7 @@ public class AdminSystem {
     }
 
     void removeBike() {
-        io.loadRentList();
+        fileIo.loadRentList();
         int menu = 0;
         try {
             scan = new Scanner(System.in);
@@ -103,7 +103,7 @@ public class AdminSystem {
                 } else {
                     bikeList.clear();
                     System.out.println("리스트가 초기화 되었습니다");
-                    io.writeBikeList();
+                    fileIo.writeBikeList();
                     break;
                 }
             }
@@ -129,7 +129,7 @@ public class AdminSystem {
             } else {
                 bikeList.remove(id);
                 System.out.println(id + " 자전거가 삭제되었습니다");
-                io.writeBikeList();
+                fileIo.writeBikeList();
                 break;
             }
         }
@@ -146,19 +146,20 @@ public class AdminSystem {
                 return false;
             } else if (!adminMap.containsKey(id)) {
                 System.out.println("ID가 맞지 않습니다. 재입력 해주세요");
-            } else break;
+                continue;
+            } else {
+                System.out.println("관리자 비밀번호를 입력해주세요 | 0. 초기화면");
+                pwd = scan.nextLine().trim();
+            }
+            if (pwd.equals("0")) {
+                System.out.println("초기화면으로 돌아갑니다");
+                return false;
+            } else if (adminMap.get(id).equals(pwd)) {
+                System.out.println("관리자 인증이 완료되었습니다!");
+                return true;
+            } else {
+                System.out.println("비밀번호가 맞지 않습니다. 재입력 해주세요");
+            }
         }
-        System.out.println("관리자 비밀번호를 입력해주세요 | 0. 초기화면");
-        pwd = scan.nextLine().trim();
-        if (pwd.equals("0")) {
-            System.out.println("초기화면으로 돌아갑니다");
-        } else if (adminMap.get(id).equals(pwd)) {
-            System.out.println("관리자 인증이 완료되었습니다!");
-            return true;
-        } else {
-            System.out.println("비밀번호가 맞지 않습니다. 재입력 해주세요");
-            adminLogin();
-        }
-        return false;
     }
 }
