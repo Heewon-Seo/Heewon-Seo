@@ -1,4 +1,4 @@
-👋 Hi, I’m @Heewon-Seo
+👋 Hi, I’m @Heewon-Seo.  
 📫 How to reach me email me seoheewon.dev@gmail.com 
 
  <!--START_SECTION:waka-->
