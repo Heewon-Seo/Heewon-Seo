@@ -4,18 +4,6 @@
  <!--START_SECTION:waka-->
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-20-blue)
 
-**🐱 My GitHub Data** 
-
-> 🏆 27 Contributions in the Year 2022
- > 
-> 📦 121.3 kB Used in GitHub's Storage 
- > 
-> 🚫 Not Opted to Hire
- > 
-> 📜 10 Public Repositories 
- > 
-> 🔑 0 Private Repositories  
- > 
 **I'm a Night 🦉** 
 
 ```text
