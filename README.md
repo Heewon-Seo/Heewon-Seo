@@ -2,7 +2,7 @@
 📫 How to reach me email me seoheewon.dev@gmail.com 
 
  <!--START_SECTION:waka-->
-![Profile Views](http://img.shields.io/badge/Profile%20Views-24-blue)
+![Profile Views](http://img.shields.io/badge/Profile%20Views-10-blue)
 
 **🐱 My GitHub Data** 
 
@@ -45,16 +45,16 @@ Sunday       39 commits     ██░░░░░░░░░░░░░░░�
 ⌚︎ Time Zone: Asia/Seoul
 
 💬 Programming Languages: 
-Java                     1 hr 32 mins        █████████████████████████   100.0%
+No Activity Tracked This Week
 
 🔥 Editors: 
-IntelliJ                 1 hr 32 mins        █████████████████████████   100.0%
+No Activity Tracked This Week
 
 🐱‍💻 Projects: 
-algorithm                1 hr 32 mins        █████████████████████████   100.0%
+No Activity Tracked This Week
 
 💻 Operating System: 
-Mac                      1 hr 32 mins        █████████████████████████   100.0%
+No Activity Tracked This Week
 
 ```
 
@@ -74,5 +74,5 @@ CSS                      1 repo              ██░░░░░░░░░�
 ![Chart not found](https://raw.githubusercontent.com/Heewon-Seo/Heewon-Seo/main/charts/bar_graph.png) 
 
 
- Last Updated on 24/02/2022 18:44:58 UTC
+ Last Updated on 02/03/2022 18:45:16 UTC
 <!--END_SECTION:waka-->
