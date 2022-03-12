@@ -1,5 +1,6 @@
 👋 Hi, I’m @Heewon-Seo.  
-📫 How to reach me email me seoheewon.dev@gmail.com 
+📫 How to reach me email me seoheewon.dev@gmail.com   
+🖥 Here's my portfolio http://haileyseo.shop
 
  <!--START_SECTION:waka-->
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-10-blue)
@@ -7,15 +8,7 @@
 **🐱 My GitHub Data** 
 
 > 🏆 74 Contributions in the Year 2022
- > 
-> 📦 121.4 kB Used in GitHub's Storage 
- > 
-> 🚫 Not Opted to Hire
- > 
-> 📜 11 Public Repositories 
- > 
-> 🔑 0 Private Repositories  
- > 
+ >
 **I'm a Night 🦉** 
 
 ```text
