@@ -3,7 +3,7 @@
 🖥 Here's my portfolio http://haileyseo.shop
 
  <!--START_SECTION:waka-->
-![Profile Views](http://img.shields.io/badge/Profile%20Views-11-blue)
+![Profile Views](http://img.shields.io/badge/Profile%20Views-15-blue)
 
 **🐱 My GitHub Data** 
 
@@ -46,18 +46,16 @@ Sunday       40 commits     ██░░░░░░░░░░░░░░░�
 ⌚︎ Time Zone: Asia/Seoul
 
 💬 Programming Languages: 
-Groovy                   2 mins              ██████████░░░░░░░░░░░░░░░   39.76% 
-Java                     2 mins              ████████░░░░░░░░░░░░░░░░░   33.89% 
-YAML                     1 min               ██████░░░░░░░░░░░░░░░░░░░   26.35%
+No Activity Tracked This Week
 
 🔥 Editors: 
-IntelliJ                 6 mins              █████████████████████████   100.0%
+No Activity Tracked This Week
 
 🐱‍💻 Projects: 
-jpashop                  6 mins              █████████████████████████   100.0%
+No Activity Tracked This Week
 
 💻 Operating System: 
-Mac                      6 mins              █████████████████████████   100.0%
+No Activity Tracked This Week
 
 ```
 
@@ -77,5 +75,5 @@ CSS                      1 repo              ██░░░░░░░░░�
 ![Chart not found](https://raw.githubusercontent.com/Heewon-Seo/Heewon-Seo/main/charts/bar_graph.png) 
 
 
- Last Updated on 13/03/2022 18:44:15 UTC
+ Last Updated on 14/03/2022 18:43:17 UTC
 <!--END_SECTION:waka-->
