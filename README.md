@@ -3,7 +3,7 @@
 🖥 Here's my portfolio http://haileyseo.shop
 
  <!--START_SECTION:waka-->
-![Profile Views](http://img.shields.io/badge/Profile%20Views-51-blue)
+![Profile Views](http://img.shields.io/badge/Profile%20Views-52-blue)
 
 **🐱 My GitHub Data** 
 
@@ -75,5 +75,5 @@ CSS                      1 repo              ██░░░░░░░░░�
 ![Chart not found](https://raw.githubusercontent.com/Heewon-Seo/Heewon-Seo/main/charts/bar_graph.png) 
 
 
- Last Updated on 25/03/2022 18:46:46 UTC
+ Last Updated on 26/03/2022 18:44:39 UTC
 <!--END_SECTION:waka-->
