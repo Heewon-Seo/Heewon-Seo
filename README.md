@@ -5,18 +5,6 @@
  <!--START_SECTION:waka-->
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-0-blue)
 
-**🐱 My GitHub Data** 
-
-> 🏆 93 Contributions in the Year 2022
- > 
-> 📦 127.9 kB Used in GitHub's Storage 
- > 
-> 🚫 Not Opted to Hire
- > 
-> 📜 13 Public Repositories 
- > 
-> 🔑 0 Private Repositories  
- > 
 **I'm a Night 🦉** 
 
 ```text
@@ -74,12 +62,6 @@ CSS                      1 repo              ██░░░░░░░░░�
 TypeScript               1 repo              ██░░░░░░░░░░░░░░░░░░░░░░░   9.09%
 
 ```
-
-
-**Timeline**
-
-![Chart not found](https://raw.githubusercontent.com/Heewon-Seo/Heewon-Seo/main/charts/bar_graph.png) 
-
-
- Last Updated on 30/04/2022 18:47:25 UTC
 <!--END_SECTION:waka-->
+
+![Leetcode Stats](https://leetcode.card.workers.dev/?username=Heewon-Seo)
