@@ -2,6 +2,8 @@
 📫 How to reach me email me seoheewon.dev@gmail.com   
 🖥 Here's my portfolio http://haileyseo.shop
 
+![Leetcode Stats](https://leetcode.card.workers.dev/?username=Heewon-Seo)
+
  <!--START_SECTION:waka-->
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-0-blue)
 
@@ -14,19 +16,6 @@
 🌙 Night      142 commits    █████████░░░░░░░░░░░░░░░░   36.32%
 
 ```
-📅 **I'm Most Productive on Tuesday** 
-
-```text
-Monday       67 commits     ████░░░░░░░░░░░░░░░░░░░░░   17.14% 
-Tuesday      77 commits     █████░░░░░░░░░░░░░░░░░░░░   19.69% 
-Wednesday    52 commits     ███░░░░░░░░░░░░░░░░░░░░░░   13.3% 
-Thursday     38 commits     ██░░░░░░░░░░░░░░░░░░░░░░░   9.72% 
-Friday       49 commits     ███░░░░░░░░░░░░░░░░░░░░░░   12.53% 
-Saturday     68 commits     ████░░░░░░░░░░░░░░░░░░░░░   17.39% 
-Sunday       40 commits     ██░░░░░░░░░░░░░░░░░░░░░░░   10.23%
-
-```
-
 
 📊 **This Week I Spent My Time On** 
 
@@ -64,4 +53,3 @@ TypeScript               1 repo              ██░░░░░░░░░�
 ```
 <!--END_SECTION:waka-->
 
-![Leetcode Stats](https://leetcode.card.workers.dev/?username=Heewon-Seo)
