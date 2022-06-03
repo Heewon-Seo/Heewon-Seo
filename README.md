@@ -11,13 +11,13 @@
 
 **🐱 My GitHub Data** 
 
-> 🏆 112 Contributions in the Year 2022
+> 🏆 113 Contributions in the Year 2022
  > 
-> 📦 127.9 kB Used in GitHub's Storage 
+> 📦 128.3 kB Used in GitHub's Storage 
  > 
 > 🚫 Not Opted to Hire
  > 
-> 📜 14 Public Repositories 
+> 📜 15 Public Repositories 
  > 
 > 🔑 0 Private Repositories  
  > 
@@ -80,6 +80,6 @@ CSS                      1 repo              ██░░░░░░░░░�
 ![Chart not found](https://raw.githubusercontent.com/Heewon-Seo/Heewon-Seo/main/charts/bar_graph.png) 
 
 
- Last Updated on 02/06/2022 18:49:32 UTC
+ Last Updated on 03/06/2022 18:46:46 UTC
 <!--END_SECTION:waka-->
 
