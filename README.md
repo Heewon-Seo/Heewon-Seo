@@ -80,6 +80,6 @@ CSS                      1 repo              ██░░░░░░░░░�
 ![Chart not found](https://raw.githubusercontent.com/Heewon-Seo/Heewon-Seo/main/charts/bar_graph.png) 
 
 
- Last Updated on 13/06/2022 18:49:33 UTC
+ Last Updated on 15/06/2022 18:48:10 UTC
 <!--END_SECTION:waka-->
 
