@@ -5,9 +5,9 @@
 ![Leetcode Stats](https://leetcode.card.workers.dev/?username=Heewon-Seo)
 
  <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-129%20hrs%2029%20mins-blue)
+![Code Time](http://img.shields.io/badge/Code%20Time-0%20secs-blue)
 
-![Profile Views](http://img.shields.io/badge/Profile%20Views-33-blue)
+![Profile Views](http://img.shields.io/badge/Profile%20Views-38-blue)
 
 **🐱 My GitHub Data** 
 
@@ -50,16 +50,20 @@ Sunday       51 commits     ███░░░░░░░░░░░░░░�
 ⌚︎ Time Zone: Asia/Seoul
 
 💬 Programming Languages: 
-No Activity Tracked This Week
+TypeScript               50 mins             █████████████████████░░░░   84.11% 
+Java                     9 mins              ████░░░░░░░░░░░░░░░░░░░░░   15.89% 
+Markdown                 0 secs              ░░░░░░░░░░░░░░░░░░░░░░░░░   0.0%
 
 🔥 Editors: 
-No Activity Tracked This Week
+IntelliJ                 1 hr                █████████████████████████   100.0% 
+VS Code                  0 secs              ░░░░░░░░░░░░░░░░░░░░░░░░░   0.0%
 
 🐱‍💻 Projects: 
-No Activity Tracked This Week
+algorithm                1 hr                █████████████████████████   100.0% 
+Unknown Project          0 secs              ░░░░░░░░░░░░░░░░░░░░░░░░░   0.0%
 
 💻 Operating System: 
-No Activity Tracked This Week
+Mac                      1 hr                █████████████████████████   100.0%
 
 ```
 
@@ -80,6 +84,6 @@ CSS                      1 repo              ██░░░░░░░░░�
 ![Chart not found](https://raw.githubusercontent.com/Heewon-Seo/Heewon-Seo/main/charts/bar_graph.png) 
 
 
- Last Updated on 02/08/2022 18:48:36 UTC
+ Last Updated on 05/08/2022 18:48:10 UTC
 <!--END_SECTION:waka-->
 
