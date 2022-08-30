@@ -50,20 +50,16 @@ Sunday       51 commits     ███░░░░░░░░░░░░░░�
 ⌚︎ Time Zone: Asia/Seoul
 
 💬 Programming Languages: 
-HTML                     45 mins             ██████████████████████░░░   90.93% 
-JSON                     1 min               ░░░░░░░░░░░░░░░░░░░░░░░░░   3.31% 
-GitIgnore file           1 min               ░░░░░░░░░░░░░░░░░░░░░░░░░   3.01% 
-TypeScript               1 min               ░░░░░░░░░░░░░░░░░░░░░░░░░   2.75%
+No Activity Tracked This Week
 
 🔥 Editors: 
-WebStorm                 49 mins             █████████████████████████   100.0%
+No Activity Tracked This Week
 
 🐱‍💻 Projects: 
-reacat_web               48 mins             ████████████████████████░   96.99% 
-Unknown Project          1 min               ░░░░░░░░░░░░░░░░░░░░░░░░░   3.01%
+No Activity Tracked This Week
 
 💻 Operating System: 
-Mac                      49 mins             █████████████████████████   100.0%
+No Activity Tracked This Week
 
 ```
 
@@ -84,6 +80,6 @@ CSS                      1 repo              ██░░░░░░░░░�
 ![Chart not found](https://raw.githubusercontent.com/Heewon-Seo/Heewon-Seo/main/charts/bar_graph.png) 
 
 
- Last Updated on 29/08/2022 18:49:56 UTC
+ Last Updated on 30/08/2022 18:48:45 UTC
 <!--END_SECTION:waka-->
 
