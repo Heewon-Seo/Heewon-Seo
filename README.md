@@ -21,48 +21,6 @@
  > 
 > 🔑 1 Private Repository 
  > 
-**I'm a Night 🦉** 
-
-```text
-🌞 Morning    20 commits     █░░░░░░░░░░░░░░░░░░░░░░░░   4.98% 
-🌆 Daytime    59 commits     ███░░░░░░░░░░░░░░░░░░░░░░   14.68% 
-🌃 Evening    170 commits    ██████████░░░░░░░░░░░░░░░   42.29% 
-🌙 Night      153 commits    █████████░░░░░░░░░░░░░░░░   38.06%
-
-```
-📅 **I'm Most Productive on Tuesday** 
-
-```text
-Monday       67 commits     ████░░░░░░░░░░░░░░░░░░░░░   16.67% 
-Tuesday      73 commits     ████░░░░░░░░░░░░░░░░░░░░░   18.16% 
-Wednesday    49 commits     ███░░░░░░░░░░░░░░░░░░░░░░   12.19% 
-Thursday     42 commits     ██░░░░░░░░░░░░░░░░░░░░░░░   10.45% 
-Friday       52 commits     ███░░░░░░░░░░░░░░░░░░░░░░   12.94% 
-Saturday     70 commits     ████░░░░░░░░░░░░░░░░░░░░░   17.41% 
-Sunday       49 commits     ███░░░░░░░░░░░░░░░░░░░░░░   12.19%
-
-```
-
-
-📊 **This Week I Spent My Time On** 
-
-```text
-⌚︎ Time Zone: Asia/Seoul
-
-💬 Programming Languages: 
-No Activity Tracked This Week
-
-🔥 Editors: 
-No Activity Tracked This Week
-
-🐱‍💻 Projects: 
-No Activity Tracked This Week
-
-💻 Operating System: 
-No Activity Tracked This Week
-
-```
-
 **I Mostly Code in Java** 
 
 ```text
@@ -80,6 +38,6 @@ CSS                      1 repo              ██░░░░░░░░░�
 ![Chart not found](https://raw.githubusercontent.com/Heewon-Seo/Heewon-Seo/main/charts/bar_graph.png) 
 
 
- Last Updated on 12/09/2022 18:54:35 UTC
+ Last Updated on 14/09/2022 18:53:40 UTC
 <!--END_SECTION:waka-->
 
