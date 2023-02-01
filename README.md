@@ -1,6 +1,6 @@
 👋 Hi, I’m @Heewon-Seo.  
 📫 How to reach me email me seoheewon.dev@gmail.com   
-🖥 Here's my portfolio http://haileyseo.shop
+🖥 Here's my portfolio [Portfolio](https://haileynotes.notion.site/HEEWON-SEO-f98fe97412ee4a6a94fd24fe6832f84c)
 
 ![Leetcode Stats](https://leetcode.card.workers.dev/?username=Heewon-Seo)
 
