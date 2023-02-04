@@ -5,7 +5,7 @@
 ![Leetcode Stats](https://leetcode.card.workers.dev/?username=Heewon-Seo)
 
  <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-203%20hrs%2043%20mins-blue)
+![Code Time](http://img.shields.io/badge/Code%20Time-209%20hrs%209%20mins-blue)
 
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-3-blue)
 
@@ -13,7 +13,7 @@
 
 > 🏆 27 Contributions in the Year 2023
  > 
-> 📦 139.5 kB Used in GitHub's Storage 
+> 📦 139.6 kB Used in GitHub's Storage 
  > 
 > 🚫 Not Opted to Hire
  > 
@@ -92,6 +92,6 @@ CSS                      1 repo              ██░░░░░░░░░�
 ![Chart not found](https://raw.githubusercontent.com/Heewon-Seo/Heewon-Seo/main/charts/bar_graph.png) 
 
 
- Last Updated on 03/02/2023 18:38:20 UTC
+ Last Updated on 04/02/2023 18:34:34 UTC
 <!--END_SECTION:waka-->
 
