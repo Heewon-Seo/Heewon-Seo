@@ -89,6 +89,6 @@ CSS                      1 repo              ██░░░░░░░░░�
 ![Lines of Code chart](https://raw.githubusercontent.com/Heewon-Seo/Heewon-Seo/main/assets/bar_graph.png)
 
 
- Last Updated on 18/03/2023 18:33:18 UTC
+ Last Updated on 19/03/2023 18:33:25 UTC
 <!--END_SECTION:waka-->
 
