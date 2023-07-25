@@ -11,7 +11,7 @@
 
 **🐱 My GitHub Data** 
 
-> 📦 152.6 kB Used in GitHub's Storage 
+> 📦 152.5 kB Used in GitHub's Storage 
  > 
 > 🏆 87 Contributions in the Year 2023
  > 
@@ -48,16 +48,16 @@ Sunday                   39 commits          ████░░░░░░░�
 🕑︎ Time Zone: Asia/Seoul
 
 💬 Programming Languages: 
-SQL                      15 hrs 10 mins      █████████████████████████   100.00 % 
+SQL                      13 hrs 35 mins      █████████████████████████   100.00 % 
 
 🔥 Editors: 
-DataGrip                 15 hrs 10 mins      █████████████████████████   100.00 % 
+DataGrip                 13 hrs 35 mins      █████████████████████████   100.00 % 
 
 🐱‍💻 Projects: 
-DataGripProjects         15 hrs 10 mins      █████████████████████████   100.00 % 
+DataGripProjects         13 hrs 35 mins      █████████████████████████   100.00 % 
 
 💻 Operating System: 
-Mac                      15 hrs 10 mins      █████████████████████████   100.00 % 
+Mac                      13 hrs 35 mins      █████████████████████████   100.00 % 
 ```
 
 **I Mostly Code in Java** 
@@ -77,6 +77,6 @@ Astro                    1 repo              ██░░░░░░░░░�
 ![Lines of Code chart](https://raw.githubusercontent.com/Heewon-Seo/Heewon-Seo/main/assets/bar_graph.png)
 
 
- Last Updated on 24/07/2023 18:34:22 UTC
+ Last Updated on 25/07/2023 18:31:24 UTC
 <!--END_SECTION:waka-->
 
