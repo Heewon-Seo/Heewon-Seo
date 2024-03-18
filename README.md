@@ -7,7 +7,7 @@
  <!--START_SECTION:waka-->
 ![Code Time](http://img.shields.io/badge/Code%20Time-1%2C015%20hrs%2019%20mins-blue)
 
-![Profile Views](http://img.shields.io/badge/Profile%20Views-1-blue)
+![Profile Views](http://img.shields.io/badge/Profile%20Views-0-blue)
 
 **🐱 My GitHub Data** 
 
@@ -48,16 +48,16 @@ Sunday                   39 commits          ████░░░░░░░�
 🕑︎ Time Zone: Asia/Seoul
 
 💬 Programming Languages: 
-SQL                      15 hrs 18 mins      █████████████████████████   100.00 % 
+SQL                      16 hrs 35 mins      █████████████████████████   100.00 % 
 
 🔥 Editors: 
-DataGrip                 15 hrs 18 mins      █████████████████████████   100.00 % 
+DataGrip                 16 hrs 35 mins      █████████████████████████   100.00 % 
 
 🐱‍💻 Projects: 
-DataGripProjects         15 hrs 18 mins      █████████████████████████   100.00 % 
+DataGripProjects         16 hrs 35 mins      █████████████████████████   100.00 % 
 
 💻 Operating System: 
-Mac                      15 hrs 18 mins      █████████████████████████   100.00 % 
+Mac                      16 hrs 35 mins      █████████████████████████   100.00 % 
 ```
 
 **I Mostly Code in Java** 
@@ -77,6 +77,6 @@ Astro                    1 repo              ██░░░░░░░░░�
 ![Lines of Code chart](https://raw.githubusercontent.com/Heewon-Seo/Heewon-Seo/main/assets/bar_graph.png)
 
 
- Last Updated on 17/03/2024 18:30:49 UTC
+ Last Updated on 18/03/2024 18:30:57 UTC
 <!--END_SECTION:waka-->
 
