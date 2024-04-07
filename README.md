@@ -11,7 +11,7 @@
 
 **🐱 My GitHub Data** 
 
-> 📦 152.7 kB Used in GitHub's Storage 
+> 📦 152.6 kB Used in GitHub's Storage 
  > 
 > 🚫 Not Opted to Hire
  > 
@@ -78,6 +78,6 @@ Astro                    1 repo              ██░░░░░░░░░�
 ![Lines of Code chart](https://raw.githubusercontent.com/Heewon-Seo/Heewon-Seo/main/assets/bar_graph.png)
 
 
- Last Updated on 06/04/2024 18:30:51 UTC
+ Last Updated on 07/04/2024 18:30:45 UTC
 <!--END_SECTION:waka-->
 
