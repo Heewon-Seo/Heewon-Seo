@@ -5,7 +5,7 @@
 ![Leetcode Stats](https://leetcode.card.workers.dev/?username=Heewon-Seo)
 
  <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-1%2C062%20hrs%2035%20mins-blue)
+![Code Time](http://img.shields.io/badge/Code%20Time-1%2C064%20hrs%2027%20mins-blue)
 
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-0-blue)
 
@@ -46,19 +46,16 @@ Sunday                   39 commits          ████░░░░░░░�
 🕑︎ Time Zone: Asia/Seoul
 
 💬 Programming Languages: 
-SQL                      9 hrs 59 mins       ████████████████████████░   96.53 % 
-Java                     21 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   03.47 % 
+SQL                      6 hrs 55 mins       █████████████████████████   100.00 % 
 
 🔥 Editors: 
-DataGrip                 9 hrs 59 mins       ████████████████████████░   96.53 % 
-Intellijidea             21 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   03.47 % 
+DataGrip                 6 hrs 55 mins       █████████████████████████   100.00 % 
 
 🐱‍💻 Projects: 
-DataGripProjects         9 hrs 59 mins       ████████████████████████░   96.53 % 
-jpashop                  21 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   03.47 % 
+DataGripProjects         6 hrs 55 mins       █████████████████████████   100.00 % 
 
 💻 Operating System: 
-Mac                      10 hrs 21 mins      █████████████████████████   100.00 % 
+Mac                      6 hrs 55 mins       █████████████████████████   100.00 % 
 ```
 
 **I Mostly Code in Java** 
@@ -78,6 +75,6 @@ Astro                    1 repo              ██░░░░░░░░░�
 ![Lines of Code chart](https://raw.githubusercontent.com/Heewon-Seo/Heewon-Seo/main/assets/bar_graph.png)
 
 
- Last Updated on 09/04/2024 18:30:56 UTC
+ Last Updated on 10/04/2024 18:49:48 UTC
 <!--END_SECTION:waka-->
 
