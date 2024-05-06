@@ -13,6 +13,8 @@
 
 > 📦 152.7 kB Used in GitHub's Storage 
  > 
+> 🏆 0 Contributions in the Year 2024
+ > 
 > 🚫 Not Opted to Hire
  > 
 > 📜 21 Public Repositories 
@@ -46,16 +48,16 @@ Sunday                   39 commits          ████░░░░░░░�
 🕑︎ Time Zone: Asia/Seoul
 
 💬 Programming Languages: 
-SQL                      10 hrs 28 mins      █████████████████████████   100.00 % 
+SQL                      7 hrs 22 mins       █████████████████████████   100.00 % 
 
 🔥 Editors: 
-DataGrip                 10 hrs 28 mins      █████████████████████████   100.00 % 
+DataGrip                 7 hrs 22 mins       █████████████████████████   100.00 % 
 
 🐱‍💻 Projects: 
-DataGripProjects         10 hrs 28 mins      █████████████████████████   100.00 % 
+DataGripProjects         7 hrs 22 mins       █████████████████████████   100.00 % 
 
 💻 Operating System: 
-Mac                      10 hrs 28 mins      █████████████████████████   100.00 % 
+Mac                      7 hrs 22 mins       █████████████████████████   100.00 % 
 ```
 
 **I Mostly Code in Java** 
@@ -75,6 +77,6 @@ Astro                    1 repo              ██░░░░░░░░░�
 ![Lines of Code chart](https://raw.githubusercontent.com/Heewon-Seo/Heewon-Seo/main/assets/bar_graph.png)
 
 
- Last Updated on 05/05/2024 18:30:53 UTC
+ Last Updated on 06/05/2024 18:32:38 UTC
 <!--END_SECTION:waka-->
 
