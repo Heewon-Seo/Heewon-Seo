@@ -5,8 +5,6 @@
 ![Leetcode Stats](https://leetcode.card.workers.dev/?username=Heewon-Seo)
 
  <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-1%2C174%20hrs%2031%20mins-blue)
-
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-0-blue)
 
 **🐱 My GitHub Data** 
@@ -86,6 +84,6 @@ Astro                    1 repo              ██░░░░░░░░░�
 ![Lines of Code chart](https://raw.githubusercontent.com/Heewon-Seo/Heewon-Seo/main/assets/bar_graph.png)
 
 
- Last Updated on 14/06/2024 18:33:54 UTC
+ Last Updated on 15/06/2024 18:32:51 UTC
 <!--END_SECTION:waka-->
 
