@@ -2,6 +2,14 @@
 📫 How to reach me email me seoheewon.dev@gmail.com   
 🖥 Here's my portfolio [Portfolio](https://haileynotes.notion.site/HEEWON-SEO-f98fe97412ee4a6a94fd24fe6832f84c)
 
+<a href="https://github.com/devxb/gitanimals">
+<img
+  src="https://render.gitanimals.org/farms/Heewon-Seo"
+  width="600"
+  height="300"
+/>
+</a>
+
 ![Leetcode Stats](https://leetcode.card.workers.dev/?username=Heewon-Seo)
 
  <!--START_SECTION:waka-->
