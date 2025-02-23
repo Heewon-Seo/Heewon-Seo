@@ -21,6 +21,8 @@
 
 > 📦 152.8 kB Used in GitHub's Storage 
  > 
+> 🏆 0 Contributions in the Year 2025
+ > 
 > 🚫 Not Opted to Hire
  > 
 > 📜 21 Public Repositories 
@@ -92,6 +94,6 @@ Astro                    1 repo              ██░░░░░░░░░�
 ![Lines of Code chart](https://raw.githubusercontent.com/Heewon-Seo/Heewon-Seo/main/assets/bar_graph.png)
 
 
- Last Updated on 22/02/2025 18:34:30 UTC
+ Last Updated on 23/02/2025 18:34:29 UTC
 <!--END_SECTION:waka-->
 
