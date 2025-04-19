@@ -13,13 +13,15 @@
 ![Leetcode Stats](https://leetcode.card.workers.dev/?username=Heewon-Seo)
 
  <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-2%2C054%20hrs%2049%20mins-blue)
+![Code Time](http://img.shields.io/badge/Code%20Time-2%2C059%20hrs%206%20mins-blue)
 
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-0-blue)
 
 **🐱 My GitHub Data** 
 
 > 📦 191.5 kB Used in GitHub's Storage 
+ > 
+> 🏆 33 Contributions in the Year 2025
  > 
 > 🚫 Not Opted to Hire
  > 
@@ -92,6 +94,6 @@ Astro                    1 repo              █░░░░░░░░░░�
 ![Lines of Code chart](https://raw.githubusercontent.com/Heewon-Seo/Heewon-Seo/main/assets/bar_graph.png)
 
 
- Last Updated on 18/04/2025 18:37:11 UTC
+ Last Updated on 19/04/2025 18:35:39 UTC
 <!--END_SECTION:waka-->
 
