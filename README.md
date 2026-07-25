@@ -13,6 +13,8 @@
 ![Leetcode Stats](https://leetcode.card.workers.dev/?username=Heewon-Seo)
 
  <!--START_SECTION:waka-->
+![Code Time](http://img.shields.io/badge/Code%20Time-2%2C625%20hrs%2020%20mins-blue?style=flat)
+
 ![Profile Views](http://img.shields.io/badge/Profile%20Views-0-blue?style=flat)
 
 **🐱 My GitHub Data** 
@@ -27,6 +29,45 @@
  > 
 > 🔑 8 Private Repositories 
  > 
+**I'm a Night 🦉** 
+
+```text
+🌞 Morning                27 commits          ██░░░░░░░░░░░░░░░░░░░░░░░   06.84 % 
+🌆 Daytime                82 commits          █████░░░░░░░░░░░░░░░░░░░░   20.76 % 
+🌃 Evening                201 commits         █████████████░░░░░░░░░░░░   50.89 % 
+🌙 Night                  85 commits          █████░░░░░░░░░░░░░░░░░░░░   21.52 % 
+```
+📅 **I'm Most Productive on Sunday** 
+
+```text
+Monday                   50 commits          ███░░░░░░░░░░░░░░░░░░░░░░   12.66 % 
+Tuesday                  53 commits          ███░░░░░░░░░░░░░░░░░░░░░░   13.42 % 
+Wednesday                58 commits          ████░░░░░░░░░░░░░░░░░░░░░   14.68 % 
+Thursday                 46 commits          ███░░░░░░░░░░░░░░░░░░░░░░   11.65 % 
+Friday                   39 commits          ██░░░░░░░░░░░░░░░░░░░░░░░   09.87 % 
+Saturday                 42 commits          ███░░░░░░░░░░░░░░░░░░░░░░   10.63 % 
+Sunday                   107 commits         ███████░░░░░░░░░░░░░░░░░░   27.09 % 
+```
+
+
+📊 **This Week I Spent My Time On** 
+
+```text
+🕑︎ Time Zone: Asia/Seoul
+
+💬 Programming Languages: 
+No Activity Tracked This Week
+
+🔥 Editors: 
+No Activity Tracked This Week
+
+🐱‍💻 Projects: 
+No Activity Tracked This Week
+
+💻 Operating System: 
+No Activity Tracked This Week
+```
+
 **I Mostly Code in Java** 
 
 ```text
@@ -44,6 +85,6 @@ Astro                    1 repo              █░░░░░░░░░░�
 ![Lines of Code chart](https://raw.githubusercontent.com/Heewon-Seo/Heewon-Seo/main/assets/bar_graph.png)
 
 
- Last Updated on 24/07/2026 19:52:22 UTC
+ Last Updated on 25/07/2026 19:39:44 UTC
 <!--END_SECTION:waka-->
 
