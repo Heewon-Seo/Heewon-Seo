@@ -17,7 +17,7 @@
 
 ![AI Code Time](http://img.shields.io/badge/AI%20Code%20Time-10%20hrs%2030%20mins-blue?style=flat)
 
-![Profile Views](http://img.shields.io/badge/Profile%20Views-1-blue?style=flat)
+![Profile Views](http://img.shields.io/badge/Profile%20Views-2-blue?style=flat)
 
 **🐱 My GitHub Data** 
 
@@ -93,6 +93,6 @@ Astro                    1 repo              █░░░░░░░░░░�
 ![Lines of Code chart](https://raw.githubusercontent.com/Heewon-Seo/Heewon-Seo/main/assets/bar_graph.png)
 
 
- Last Updated on 13/08/2026 19:31:03 UTC
+ Last Updated on 14/08/2026 19:24:26 UTC
 <!--END_SECTION:waka-->
 
