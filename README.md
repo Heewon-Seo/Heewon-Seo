@@ -93,6 +93,6 @@ Astro                    1 repo              █░░░░░░░░░░�
 ![Lines of Code chart](https://raw.githubusercontent.com/Heewon-Seo/Heewon-Seo/main/assets/bar_graph.png)
 
 
- Last Updated on 27/09/2026 21:29:03 UTC
+ Last Updated on 28/09/2026 23:23:56 UTC
 <!--END_SECTION:waka-->
 
