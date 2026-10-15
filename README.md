@@ -21,7 +21,7 @@
 
 **🐱 My GitHub Data** 
 
-> 📦 192.7 kB Used in GitHub's Storage 
+> 📦 192.6 kB Used in GitHub's Storage 
  > 
 > 🏆 62 Contributions in the Year 2026
  > 
@@ -93,6 +93,6 @@ Astro                    1 repo              █░░░░░░░░░░�
 ![Lines of Code chart](https://raw.githubusercontent.com/Heewon-Seo/Heewon-Seo/main/assets/bar_graph.png)
 
 
- Last Updated on 14/10/2026 21:49:45 UTC
+ Last Updated on 15/10/2026 21:33:16 UTC
 <!--END_SECTION:waka-->
 
